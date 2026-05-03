@@ -4,17 +4,63 @@ const { currentPage = 'home' } = Astro.props;
 
 <header style="background: #1e2937; padding: 1rem 0; border-bottom: 1px solid #334155; position: sticky; top: 0; z-index: 100;">
   <nav style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+    <!-- Logo -->
     <a href="/" style="font-size: 1.6rem; font-weight: bold; text-decoration: none; color: white;">
       CounterMats
     </a>
 
-    <div style="display: flex; gap: 2rem; font-size: 1.1rem; align-items: center;">
+    <!-- Desktop Menu -->
+    <div class="desktop-menu" style="display: flex; gap: 2rem; font-size: 1.1rem; align-items: center;">
       <a href="/products" style={currentPage === 'products' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Products</a>
       <a href="/blog" style={currentPage === 'blog' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Blog</a>
-      <a href="https://x.com/countermat_2035" target="_blank" 
-         style="background: #000; color: white; padding: 10px 20px; border-radius: 9999px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+      <a href="/contact" style={currentPage === 'contact' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Contact</a>
+      
+      <!-- X Chat Button -->
+      <a href="https://x.com/yourusername" target="_blank" 
+         style="background: #000; color: white; padding: 10px 20px; border-radius: 9999px; text-decoration: none; font-size: 1rem; display: flex; align-items: center; gap: 8px; border: 1px solid #333;">
         💬 Chat on X
       </a>
     </div>
+
+    <!-- Mobile Hamburger -->
+    <button id="mobile-menu-button" style="background: none; border: none; font-size: 1.8rem; color: white; cursor: pointer; display: none;">
+      ☰
+    </button>
   </nav>
+
+  <!-- Mobile Menu Dropdown -->
+  <div id="mobile-menu" style="display: none; background: #1e2937; padding: 20px; border-top: 1px solid #334155;">
+    <div style="display: flex; flex-direction: column; gap: 1.2rem; font-size: 1.2rem; text-align: center;">
+      <a href="/products" style={currentPage === 'products' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Products</a>
+      <a href="/blog" style={currentPage === 'blog' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Blog</a>
+      <a href="/contact" style={currentPage === 'contact' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Contact</a>
+      <a href="https://x.com/yourusername" target="_blank" style="color: #60a5fa; text-decoration: none;">💬 Chat on X</a>
+    </div>
+  </div>
 </header>
+
+<script>
+  const button = document.getElementById('mobile-menu-button');
+  const menu = document.getElementById('mobile-menu');
+
+  button.addEventListener('click', () => {
+    if (menu.style.display === 'none' || menu.style.display === '') {
+      menu.style.display = 'block';
+      button.textContent = '✕';
+    } else {
+      menu.style.display = 'none';
+      button.textContent = '☰';
+    }
+  });
+</script>
+
+<style>
+  @media (max-width: 768px) {
+    .desktop-menu {
+      display: none !important;
+    }
+    #mobile-menu-button {
+      display: block !important;
+    }
+  }
+</style>
