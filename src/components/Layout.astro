@@ -1,0 +1,31 @@
+---
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+const { title = 'OEM Custom Counter Mats' } = Astro.props;
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            margin: 0;
+            background: #0f172a;
+            color: #e2e8f0;
+        }
+        main { 
+            min-height: 100vh; 
+        }
+    </style>
+</head>
+<body>
+    <Header />
+    <main>
+        <slot />
+    </main>
+    <Footer />
+</body>
+</html>

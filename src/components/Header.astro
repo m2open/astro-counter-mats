@@ -1,0 +1,20 @@
+---
+const { currentPage = 'home' } = Astro.props;
+---
+
+<header style="background: #1e2937; padding: 1rem 0; border-bottom: 1px solid #334155; position: sticky; top: 0; z-index: 100;">
+  <nav style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 20px;">
+    <a href="/" style="font-size: 1.6rem; font-weight: bold; text-decoration: none; color: white;">
+      CounterMats
+    </a>
+
+    <div style="display: flex; gap: 2rem; font-size: 1.1rem; align-items: center;">
+      <a href="/products" style={currentPage === 'products' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Products</a>
+      <a href="/blog" style={currentPage === 'blog' ? 'color: #f97316; font-weight: 600;' : 'color: white; text-decoration: none;'}>Blog</a>
+      <a href="https://x.com/countermat_2035" target="_blank" 
+         style="background: #000; color: white; padding: 10px 20px; border-radius: 9999px; text-decoration: none; display: flex; align-items: center; gap: 8px;">
+        💬 Chat on X
+      </a>
+    </div>
+  </nav>
+</header>
