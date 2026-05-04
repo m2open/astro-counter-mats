@@ -2,69 +2,88 @@
 import Layout from '../components/Layout.astro';
 ---
 
-<Layout title="Products - Custom Counter Mats">
-    <section style="padding: 120px 20px 80px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
-        <h1 style="font-size: 3.2rem; margin-bottom: 20px;">Our Products</h1>
-        <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">
-            High-quality custom counter mats designed for bars, restaurants, retail stores, and promotional use.
+<Layout title="Products - OEM Custom Counter Mats">
+    <!-- Hero -->
+    <section style="padding: 140px 20px 80px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
+        <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Our Products</h1>
+        <p style="font-size: 1.35rem; max-width: 800px; margin: 0 auto;">
+            Premium custom counter mats designed for bars, restaurants, retail stores, and promotional campaigns worldwide.
         </p>
     </section>
 
-    <section style="padding: 80px 20px;">
-        <div style="max-width: 1200px; margin: 0 auto;">
-            <!-- Product 1 -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px;">
-                <div>
-                    <img src="/images/mat1.jpg" alt="Premium Bar Mat" style="width:100%; border-radius:16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
-                </div>
-                <div>
-                    <h2>Premium Bar Counter Mats</h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8;">
-                        Perfect for bars and restaurants. Heavy-duty rubber base with high-absorbency top surface. 
-                        Fully customizable with your logo and branding.
-                    </p>
-                    <ul style="margin: 20px 0; padding-left: 20px;">
-                        <li>Anti-slip backing</li>
-                        <li>Easy to clean</li>
-                        <li>Available in multiple sizes</li>
-                    </ul>
-                    <a href="/contact" style="background:#f97316; color:white; padding:14px 32px; border-radius:50px; text-decoration:none; font-weight:bold;">
-                        Request Quote
-                    </a>
-                </div>
-            </div>
+    <section style="padding: 100px 20px; max-width: 1200px; margin: 0 auto;">
 
-            <!-- Product 2 -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 100px;">
-                <div style="order: 2;">
-                    <img src="/images/mat2.jpg" alt="Restaurant Counter Mat" style="width:100%; border-radius:16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
-                </div>
-                <div>
-                    <h2>Restaurant Checkout Mats</h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8;">
-                        Ideal for point-of-sale areas. Durable and eye-catching designs that help reinforce your brand at every transaction.
-                    </p>
-                    <a href="/contact" style="background:#f97316; color:white; padding:14px 32px; border-radius:50px; text-decoration:none; font-weight:bold;">
-                        Request Quote
-                    </a>
-                </div>
+        <!-- Product 1: Premium Bar Counter Mats -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 140px;">
+            <div>
+                <img src="/images/mat1.jpg" alt="Premium Bar Mat" style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
             </div>
-
-            <!-- Product 3 -->
-            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-                <div>
-                    <img src="/images/mat3.jpg" alt="Promotional Mat" style="width:100%; border-radius:16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
-                </div>
-                <div>
-                    <h2>Promotional & Gift Mats</h2>
-                    <p style="font-size: 1.2rem; line-height: 1.8;">
-                        Perfect for corporate gifts, events, and promotional campaigns. High perceived value and long-lasting branding.
-                    </p>
-                    <a href="/contact" style="background:#f97316; color:white; padding:14px 32px; border-radius:50px; text-decoration:none; font-weight:bold;">
-                        Request Quote
-                    </a>
-                </div>
+            <div>
+                <h2 style="font-size: 2.3rem;">Premium Bar Counter Mats</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">
+                    Designed for high-traffic bars and restaurants. Heavy-duty natural rubber base with high-absorbency fabric surface.
+                </p>
+                
+                <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
+                <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">Natural rubber base + premium fabric top</td></tr>
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">3mm – 8mm</td></tr>
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
+                    <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">Full-color digital printing</td></tr>
+                </table>
+                
+                <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
+                    Request Quote
+                </a>
             </div>
         </div>
-    </section>
-</Layout>
+
+        <!-- Product 2: Restaurant Checkout Mats -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 140px;">
+            <div style="order: 2;">
+                <img src="/images/mat2.jpg" alt="Restaurant Counter Mat" style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+            </div>
+            <div>
+                <h2 style="font-size: 2.3rem;">Restaurant Checkout Mats</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">
+                    Perfect for point-of-sale areas. Eye-catching designs that reinforce your brand while protecting counters from spills.
+                </p>
+                
+                <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
+                <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">Natural rubber base + fabric top</td></tr>
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">3mm – 6mm</td></tr>
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
+                    <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">Full-color digital printing</td></tr>
+                </table>
+                
+                <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
+                    Request Quote
+                </a>
+            </div>
+        </div>
+
+        <!-- Product 3: Promotional & Corporate Gift Mats -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
+            <div>
+                <img src="/images/mat3.jpg" alt="Promotional Mat" style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+            </div>
+            <div>
+                <h2 style="font-size: 2.3rem;">Promotional & Corporate Gift Mats</h2>
+                <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">
+                    High-perceived value custom mats perfect for corporate gifts, events, trade shows, and marketing campaigns.
+                </p>
+                
+                <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
+                <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">Premium rubber base</td></tr>
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">4mm – 8mm</td></tr>
+                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
+                    <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">Full-color digital printing</td></tr>
+                </table>
+                
+                <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
+                    Request Quote
+                </a>
+            </div>
+        </div>

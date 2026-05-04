@@ -1,32 +1,36 @@
 ---
-import Header from '../components/Header.astro';
+import Layout from '../components/Layout.astro';
 ---
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us - Custom Counter Mats</title>
-</head>
-<body>
-    <Header currentPage="contact" />
-    
-    <main style="padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center;">
-        <h1>Contact Us</h1>
-        <p style="font-size: 1.3rem; margin: 2rem 0;">
+<Layout title="Contact Us - Custom Counter Mats">
+    <section style="padding: 140px 20px 100px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
+        <h1 style="font-size: 3.2rem; margin-bottom: 20px;">Contact Us</h1>
+        <p style="font-size: 1.35rem; max-width: 700px; margin: 0 auto;">
             Ready to discuss your custom counter mat project?<br>
             Send us your requirements and we'll get back to you within 24 hours.
         </p>
-        
-        <div style="margin: 3rem 0;">
-            <p><strong>Email:</strong> your-email@example.com</p>
-            <p><strong>WhatsApp / WeChat:</strong> +[Your Number]</p>
-            <p><strong>X:</strong> <a href="https://x.com/yourusername" target="_blank">@yourusername</a></p>
+    </section>
+
+    <section style="padding: 80px 20px; max-width: 700px; margin: 0 auto; text-align: center;">
+        <div style="background: #1e2937; padding: 60px 40px; border-radius: 20px;">
+            <h2 style="margin-bottom: 40px;">Get in Touch</h2>
+            
+            <p style="font-size: 1.3rem; margin: 25px 0;">
+                <strong>Email:</strong><br>
+                <a href="mailto:countermat25@gmail.com" style="color: #60a5fa; text-decoration: none;">
+                    countermat25@gmail.com
+                </a>
+            </p>
+            
+            <p style="font-size: 1.3rem; margin: 25px 0;">
+                <strong>WhatsApp:</strong><br>
+                +[Your WhatsApp Number]
+            </p>
+            
+            <a href="mailto:countermat25@gmail.com" 
+               style="background:#f97316; color:white; padding:18px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block; margin-top: 30px;">
+                Send Email Now
+            </a>
         </div>
-        
-        <a href="mailto:your-email@example.com" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
-            Send Email Now
-        </a>
-    </main>
-</body>
-</html>
+    </section>
+</Layout>
