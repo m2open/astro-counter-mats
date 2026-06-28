@@ -1,5 +1,9 @@
 ---
 import Layout from '../components/Layout.astro';
+import { craftQuery } from '../lib/craft';
+
+const data = await craftQuery('{ entries(section: "products") { id title slug ... on products_default_Entry { productDescription material thickness printing priceRange productImages { url alt } } } }');
+const products = data.entries as any[];
 ---
 
 <Layout title="Products - OEM Custom Counter Mats">
@@ -12,79 +16,30 @@ import Layout from '../components/Layout.astro';
     </section>
 
     <section style="padding: 100px 20px; max-width: 1200px; margin: 0 auto;">
+        {products.map((product, index) => (
+            <div style={`display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 140px;`}>
+                <div style={index % 2 !== 0 ? 'order: 2;' : ''}>
+                    {product.productImages[0] && (
+                        <img src={product.productImages[0].url} alt={product.productImages[0].alt || product.title} style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);" />
+                    )}
+                </div>
+                <div>
+                    <h2 style="font-size: 2.3rem;">{product.title}</h2>
+                    <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">{product.productDescription}</p>
 
-        <!-- Product 1: Premium Bar Counter Mats -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 140px;">
-            <div>
-                <img src="/images/mat1.jpg" alt="Premium Bar Mat" style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
-            </div>
-            <div>
-                <h2 style="font-size: 2.3rem;">Premium Bar Counter Mats</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">
-                    Designed for high-traffic bars and restaurants. Heavy-duty natural rubber base with high-absorbency fabric surface.
-                </p>
-                
-                <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
-                <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">Natural rubber base + premium fabric top</td></tr>
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">3mm – 8mm</td></tr>
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
-                    <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">Full-color digital printing</td></tr>
-                </table>
-                
-                <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
-                    Request Quote
-                </a>
-            </div>
-        </div>
+                    <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
+                    <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
+                        <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">{product.material}</td></tr>
+                        <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">{product.thickness}</td></tr>
+                        <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
+                        <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">{product.printing}</td></tr>
+                    </table>
 
-        <!-- Product 2: Restaurant Checkout Mats -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-bottom: 140px;">
-            <div style="order: 2;">
-                <img src="/images/mat2.jpg" alt="Restaurant Counter Mat" style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
+                    <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
+                        Request Quote
+                    </a>
+                </div>
             </div>
-            <div>
-                <h2 style="font-size: 2.3rem;">Restaurant Checkout Mats</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">
-                    Perfect for point-of-sale areas. Eye-catching designs that reinforce your brand while protecting counters from spills.
-                </p>
-                
-                <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
-                <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">Natural rubber base + fabric top</td></tr>
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">3mm – 6mm</td></tr>
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
-                    <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">Full-color digital printing</td></tr>
-                </table>
-                
-                <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
-                    Request Quote
-                </a>
-            </div>
-        </div>
-
-        <!-- Product 3: Promotional & Corporate Gift Mats -->
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;">
-            <div>
-                <img src="/images/mat3.jpg" alt="Promotional Mat" style="width:100%; border-radius: 16px; box-shadow: 0 15px 40px rgba(0,0,0,0.3);">
-            </div>
-            <div>
-                <h2 style="font-size: 2.3rem;">Promotional & Corporate Gift Mats</h2>
-                <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">
-                    High-perceived value custom mats perfect for corporate gifts, events, trade shows, and marketing campaigns.
-                </p>
-                
-                <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
-                <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Material</td><td style="padding: 12px 0;">Premium rubber base</td></tr>
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Thickness</td><td style="padding: 12px 0;">4mm – 8mm</td></tr>
-                    <tr style="border-bottom: 1px solid #334155;"><td style="padding: 12px 0; font-weight: 600;">Size</td><td style="padding: 12px 0;">Custom sizes available</td></tr>
-                    <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">Full-color digital printing</td></tr>
-                </table>
-                
-                <a href="/contact" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
-                    Request Quote
-                </a>
-            </div>
-        </div>    </section>
+        ))}
+    </section>
 </Layout>
