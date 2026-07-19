@@ -29,13 +29,8 @@ const productLines = [
           <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg>
         </button>
         <div id="products-submenu" class="products-submenu" style="display: none; position: absolute; top: calc(100% + 1rem); left: 0; background: #1e2937; border: 1px solid #334155; border-radius: 8px; min-width: 260px; padding: 0.5rem 0; box-shadow: 0 8px 24px rgba(0,0,0,0.35);">
-          {productLines.map((item) => (
-            
-              href={`/products/${item.slug}`}
-              style="display: block; padding: 0.6rem 1.2rem; color: white; text-decoration: none; font-size: 1rem; white-space: nowrap;"
-              onmouseover="this.style.color='#f97316'"
-              onmouseout="this.style.color='white'"
-            >{item.name}</a>
+         {productLines.map((item) => (
+            <a href={`/products/${item.slug}`} style="display: block; padding: 0.6rem 1.2rem; color: white; text-decoration: none; font-size: 1rem; white-space: nowrap;" onmouseover="this.style.color='#f97316'" onmouseout="this.style.color='white'">{item.name}</a>
           ))}
         </div>
       </div>
