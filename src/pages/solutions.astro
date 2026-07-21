@@ -1,0 +1,54 @@
+---
+import Layout from '../components/Layout.astro';
+
+const solutions = [
+  {
+    title: "Bars & Nightclubs",
+    description: "Premium bar counter mats built to handle spills, condensation, and heavy nightly use — while keeping your bar top looking sharp.",
+    link: "/products/premium-bar-counter-mats",
+  },
+  {
+    title: "Restaurants & Hospitality",
+    description: "Hard surface and fabric counter mats that protect host stands, service counters, and prep areas from daily wear.",
+    link: "/products/hard-surface-counter-mats",
+  },
+  {
+    title: "Retail & Pop-Up Branding",
+    description: "Changeable insert mats let you swap in new artwork or promotions in seconds — perfect for retail counters and seasonal campaigns.",
+    link: "/products/changeable-insert-counter-mats",
+  },
+  {
+    title: "Eco-Conscious Venues",
+    description: "Sustainably made mats for businesses that want durable branding without the environmental tradeoff.",
+    link: "/products/eco-friendly-counter-mats",
+  },
+  {
+    title: "Custom Layouts & Odd Spaces",
+    description: "Non-standard counter shapes and sizes, cut and printed to match your exact footprint.",
+    link: "/products/custom-shapes-sizes",
+  },
+];
+---
+
+<Layout title="Solutions - Custom Counter Mats">
+    <section style="padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
+        <h1 style="font-size: 3.2rem; margin-bottom: 20px;">Solutions</h1>
+        <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">
+            Whatever your space looks like, there's a counter mat built for it. Explore solutions by industry and use case.
+        </p>
+    </section>
+
+    <section style="padding: 80px 20px; max-width: 1200px; margin: 0 auto;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 40px;">
+            {solutions.map((solution) => (
+                <article style="background: #1e2937; border-radius: 16px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3); padding: 25px;">
+                    <h3 style="margin: 0 0 12px 0;">{solution.title}</h3>
+                    <p style="opacity: 0.8; line-height: 1.6;">{solution.description}</p>
+                    <a href={solution.link} style="color: #f97316; text-decoration: none; font-weight: 600; margin-top: 20px; display: inline-block;">
+                        Explore →
+                    </a>
+                </article>
+            ))}
+        </div>
+    </section>
+</Layout>

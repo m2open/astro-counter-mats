@@ -1,3 +1,7 @@
+---
+import Nav from './Nav.astro';
+---
+
 <footer style="background: #020617; padding: 80px 20px 50px; text-align: center; border-top: 1px solid #334155;">
     <div style="max-width: 1200px; margin: 0 auto;">
         <p style="font-size: 1.25rem; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
@@ -5,10 +9,8 @@
         </p>
 
         <!-- Navigation -->
-        <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center; margin-bottom: 40px; font-size: 1.1rem;">
-            <a href="/products" style="color: white; text-decoration: none;">Products</a>
-            <a href="/blog" style="color: white; text-decoration: none;">Blog</a>
-            <a href="/contact" style="color: white; text-decoration: none;">Contact</a>
+        <div class="footer-nav">
+            <Nav />
         </div>
 
         <!-- 3 Icon Buttons -->
@@ -36,3 +38,27 @@
         </p>
     </div>
 </footer>
+
+<style>
+    .footer-nav :global(nav) {
+        margin-bottom: 40px;
+    }
+    .footer-nav :global(ul) {
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        justify-content: center;
+        margin: 0;
+        padding: 0;
+        font-size: 1.1rem;
+    }
+    .footer-nav :global(a) {
+        color: white;
+        text-decoration: none;
+    }
+    .footer-nav :global(a[aria-current="page"]) {
+        color: #f97316;
+        font-weight: 600;
+    }
+</style>
