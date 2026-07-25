@@ -43,6 +43,24 @@ const query = `
           url
           title
         }
+        downloadPdf {
+          url
+          filename
+        }
+        applicationsText
+        applicationsImage {
+          url
+          title
+        }
+        packageDimension
+        grossWeight
+        orderInformation {
+          ... on orderInformation_TableRow {
+            content
+            qty
+            unit
+          }
+        }
       }
     }
   }
@@ -127,8 +145,86 @@ if (!product) {
       </div>
     )}
 
-    
-      <a href="/contact" style="display: inline-block; margin-top: 2.5rem; background: #f97316; color: white; padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600;">Request Quote</a>
+    {product.orderInformation?.length > 0 && (
+      <div style="margin-top: 2.5rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Order Information</h2>
+        <p style="color: #94a3b8; margin-bottom: 0.75rem;">Line items for this product's order/packing details.</p>
+        <table style="width: 100%; border-collapse: collapse;">
+          <thead>
+            <tr style="border-bottom: 2px solid #334155;">
+              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Content</th>
+              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Qty</th>
+              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Unit</th>
+              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Package Dimension</th>
+              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Gross Weight</th>
+            </tr>
+          </thead>
+          <tbody>
+            {product.orderInformation.map((row, i) => (
+              <tr style="border-bottom: 1px solid #334155;">
+                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.content}</td>
+                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.qty}</td>
+                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.unit}</td>
+                {i === 0 && (product.packageDimension || product.grossWeight) && (
+                  <>
+                    <td
+                      rowspan={product.orderInformation.length}
+                      style="padding: 0.6rem 0.5rem; color: #cbd5e1; vertical-align: middle; text-align: center; background: #24303f;"
+                    >
+                      {product.packageDimension}
+                    </td>
+                    <td
+                      rowspan={product.orderInformation.length}
+                      style="padding: 0.6rem 0.5rem; color: #cbd5e1; vertical-align: middle; text-align: center; background: #24303f;"
+                    >
+                      {product.grossWeight}
+                    </td>
+                  </>
+                )}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    )}
+
+    {product.applicationsText && (
+      <div style="margin-top: 2.5rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Applications</h2>
+        <p style="font-size: 1.05rem; line-height: 1.6; color: #cbd5e1;">
+          {product.applicationsText}
+        </p>
+        {product.applicationsImage?.length > 0 && (
+          <img
+            src={product.applicationsImage[0].url}
+            alt={product.applicationsImage[0].title || 'Applications'}
+            style="width: 100%; max-width: 500px; border-radius: 8px; margin-top: 1rem;"
+          />
+        )}
+      </div>
+    )}
+
+    {product.downloadPdf?.length > 0 && (
+      <div style="margin-top: 2.5rem;">
+        <h2 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Download</h2>
+        <a
+          href={product.downloadPdf[0].url}
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-flex; align-items: center; gap: 0.5rem; background: #334155; color: white; padding: 0.75rem 1.5rem; border-radius: 6px; text-decoration: none; font-weight: 600;"
+        >
+          Download PDF ({product.downloadPdf[0].filename})
+        </a>
+      </div>
+    )}
+
+    <a href="/contact" style="display: inline-block; margin-top: 2.5rem; background: #f97316; color: white; padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600;">Request a Quote</a>
+
+    <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+      <a href="https://wa.me/8613168787818" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: #f97316; border: 2px solid #f97316; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600;">WhatsApp</a>
+
+      <a href="https://x.com/countermat_2035" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: #f97316; border: 2px solid #f97316; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600;">XChat</a>
+    </div>
   </main>
 </body>
 </html>
