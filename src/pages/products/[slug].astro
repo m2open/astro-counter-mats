@@ -166,20 +166,20 @@ if (!product) {
                 <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.qty}</td>
                 <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.unit}</td>
                 {i === 0 && (product.packageDimension || product.grossWeight) && (
-                  <>
-                    <td
-                      rowspan={product.orderInformation.length}
-                      style="padding: 0.6rem 0.5rem; color: #cbd5e1; vertical-align: middle; text-align: center; background: #24303f;"
-                    >
-                      {product.packageDimension}
-                    </td>
-                    <td
-                      rowspan={product.orderInformation.length}
-                      style="padding: 0.6rem 0.5rem; color: #cbd5e1; vertical-align: middle; text-align: center; background: #24303f;"
-                    >
-                      {product.grossWeight}
-                    </td>
-                  </>
+  <>
+    <td
+      rowspan={product.orderInformation.length}
+      style="padding: 0.7rem 0.5rem; color: #e2e8f0; vertical-align: middle; text-align: center; background: #1e2937;"
+    >
+      {product.packageDimension}
+    </td>
+    <td
+      rowspan={product.orderInformation.length}
+      style="padding: 0.7rem 0.5rem; color: #e2e8f0; vertical-align: middle; text-align: center; background: #1e2937; border-left: 1px solid #334155;"
+    >
+      {product.grossWeight}
+    </td>
+  </>
                 )}
               </tr>
             ))}
