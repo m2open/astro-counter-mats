@@ -149,33 +149,33 @@ if (!product) {
       <div style="margin-top: 2.5rem;">
         <h2 style="font-size: 1.5rem; margin-bottom: 0.75rem;">Order Information</h2>
         <p style="color: #94a3b8; margin-bottom: 0.75rem;">Line items for this product's order/packing details.</p>
-        <table style="width: 100%; border-collapse: collapse;">
+        <table style="width: 100%; border-collapse: collapse; border: 1px solid #334155;">
           <thead>
-            <tr style="border-bottom: 2px solid #334155;">
-              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Content</th>
-              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Qty</th>
-              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Unit</th>
-              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Package Dimension</th>
-              <th style="text-align: left; padding: 0.6rem 0.5rem; color: #94a3b8;">Gross Weight</th>
+            <tr>
+              <th style="text-align: center; padding: 0.6rem 0.5rem; color: #94a3b8; border: 1px solid #334155;">Content</th>
+              <th style="text-align: center; padding: 0.6rem 0.5rem; color: #94a3b8; border: 1px solid #334155;">Qty</th>
+              <th style="text-align: center; padding: 0.6rem 0.5rem; color: #94a3b8; border: 1px solid #334155;">Unit</th>
+              <th style="text-align: center; padding: 0.6rem 0.5rem; color: #94a3b8; border: 1px solid #334155;">Package Dimension</th>
+              <th style="text-align: center; padding: 0.6rem 0.5rem; color: #94a3b8; border: 1px solid #334155;">Gross Weight</th>
             </tr>
           </thead>
           <tbody>
             {product.orderInformation.map((row, i) => (
-              <tr style="border-bottom: 1px solid #334155;">
-                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.content}</td>
-                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.qty}</td>
-                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1;">{row.unit}</td>
+              <tr>
+                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1; text-align: center; border: 1px solid #334155;">{row.content}</td>
+                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1; text-align: center; border: 1px solid #334155;">{row.qty}</td>
+                <td style="padding: 0.6rem 0.5rem; color: #cbd5e1; text-align: center; border: 1px solid #334155;">{row.unit}</td>
                 {i === 0 && (product.packageDimension || product.grossWeight) && (
   <>
     <td
       rowspan={product.orderInformation.length}
-      style="padding: 0.7rem 0.5rem; color: #e2e8f0; vertical-align: middle; text-align: center; background: #1e2937;"
+      style="padding: 0.7rem 0.5rem; color: #e2e8f0; vertical-align: middle; text-align: center; background: #1e2937; border: 1px solid #334155;"
     >
       {product.packageDimension}
     </td>
     <td
       rowspan={product.orderInformation.length}
-      style="padding: 0.7rem 0.5rem; color: #e2e8f0; vertical-align: middle; text-align: center; background: #1e2937; border-left: 1px solid #334155;"
+      style="padding: 0.7rem 0.5rem; color: #e2e8f0; vertical-align: middle; text-align: center; background: #1e2937; border: 1px solid #334155;"
     >
       {product.grossWeight}
     </td>
