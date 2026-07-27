@@ -1,64 +1,189 @@
 ---
-import Nav from './Nav.astro';
+const productLines = [
+  { name: "Hard Surface Counter Mats", slug: "hard-surface-counter-mats" },
+  { name: "Fabric Counter Mats", slug: "fabric-counter-mats" },
+  { name: "Changeable Insert Counter Mats", slug: "changeable-insert-counter-mats" },
+  { name: "Premium Bar Counter Mats", slug: "premium-bar-counter-mats" },
+  { name: "Eco-Friendly Counter Mats", slug: "eco-friendly-counter-mats" },
+  { name: "Custom Shapes & Sizes", slug: "custom-shapes-sizes" },
+  { name: "Duraframe Window Poster Frame", slug: "duraframe-window-poster-frame" },
+];
+
+const solutions = [
+  "Bars & Nightclubs",
+  "Restaurants & Hospitality",
+  "Retail & Pop-Up Branding",
+  "Eco-Conscious Venues",
+  "Custom Layouts & Odd Spaces",
+];
+
+const path = Astro.url.pathname;
+const currentPage =
+  path === '/' ? 'home' :
+  path.startsWith('/products') ? 'products' :
+  path.startsWith('/solutions') ? 'solutions' :
+  path.startsWith('/blog') ? 'blog' :
+  path.startsWith('/contact') ? 'contact' :
+  '';
 ---
 
-<footer style="background: #020617; padding: 80px 20px 50px; text-align: center; border-top: 1px solid #334155;">
-    <div style="max-width: 1200px; margin: 0 auto;">
-        <p style="font-size: 1.25rem; margin-bottom: 40px; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6;">
+<footer style="border-top: 1px solid #334155;">
+    <div style="background: #0b1220; padding: 60px 20px 50px;">
+        <p style="font-size: 1.25rem; max-width: 800px; margin: 0 auto; line-height: 1.6; text-align: center;">
             Add your designs to Custom Counter Mats of beautiful products, which we ship to you or help you to ship to your customers around the world.
         </p>
+    </div>
 
-        <!-- Navigation -->
-        <div class="footer-nav">
-            <Nav />
+    <div style="background: #020617; padding: 50px 20px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+        <!-- 4 Column Layout -->
+        <div class="footer-columns">
+            <!-- Countermats -->
+            <div>
+                <h3 class="footer-heading"><a href="/" class={currentPage === 'home' ? 'footer-heading-link active' : 'footer-heading-link'}>CounterMats</a></h3>
+                <p class="footer-line">Company Profile</p>
+                <p class="footer-line" style="margin-top: 24px;">Add: Western Industrial Building, SZ. POC.</p>
+                <p class="footer-subheading">FOLLOW US</p>
+                <div style="display: flex; gap: 12px; justify-content: flex-start;">
+                    <a href="https://www.linkedin.com/in/customcountermat" target="_blank" rel="noopener" title="LinkedIn" class="social-icon" style="background: #0A66C2;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zM7.114 20.452H3.56V9h3.554v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=100091795020808" target="_blank" rel="noopener" title="Facebook" class="social-icon" style="background: #1877F2;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M22.675 0H1.325C.593 0 0 .593 0 1.325v21.351C0 23.407.593 24 1.325 24H12.82v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.795.143v3.24h-1.918c-1.504 0-1.795.715-1.795 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.407 24 24 23.407 24 22.676V1.325C24 .593 23.407 0 22.675 0z"/></svg>
+                    </a>
+                    <a href="https://www.instagram.com/customcountermat" target="_blank" rel="noopener" title="Instagram" class="social-icon" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+                    </a>
+                    <a href="https://www.youtube.com/@Custom-CounterMat" target="_blank" rel="noopener" title="YouTube" class="social-icon" style="background: #FF0000;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a2.999 2.999 0 0 0-2.113-2.117C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.385.524A2.999 2.999 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a2.999 2.999 0 0 0 2.113 2.117c1.88.524 9.385.524 9.385.524s7.505 0 9.385-.524a2.999 2.999 0 0 0 2.113-2.117C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Products -->
+            <div>
+                <h3 class="footer-heading"><a href="/products" class={currentPage === 'products' ? 'footer-heading-link active' : 'footer-heading-link'}>Products</a></h3>
+                {productLines.map((item) => (
+                    <a href={`/products/${item.slug}`} class="footer-link">{item.name}</a>
+                ))}
+            </div>
+
+            <!-- Solutions -->
+            <div>
+                <h3 class="footer-heading"><a href="/solutions" class={currentPage === 'solutions' ? 'footer-heading-link active' : 'footer-heading-link'}>Solutions</a></h3>
+                {solutions.map((item) => (
+                    <a href="/solutions" class="footer-link">{item}</a>
+                ))}
+            </div>
+
+            <!-- Contact -->
+            <div>
+                <h3 class="footer-heading"><a href="/contact" class={currentPage === 'contact' ? 'footer-heading-link active' : 'footer-heading-link'}>Contact</a></h3>
+                <p class="footer-line">Tel:<br /><span style="opacity: 0.75;">+8613168787818</span></p>
+                <p class="footer-line" style="margin-top: 20px;">FAQ</p>
+                <a href="/blog" class="footer-link" style="margin-top: 4px;">Blog</a>
+
+                <div style="display: flex; gap: 12px; margin-top: 28px; justify-content: flex-start;">
+                    <a href="mailto:countermat25@gmail.com" title="Email us" style="background: #1d4ed8; color: white; width: 40px; height: 40px; border-radius: 50%; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                    </a>
+                    <a href="https://wa.me/8613168787818" target="_blank" title="WhatsApp" style="background: #16a34a; color: white; width: 40px; height: 40px; border-radius: 50%; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+                    </a>
+                    <a href="https://x.com/countermat_2035" target="_blank" title="Chat on X" style="background: #000; color: white; width: 40px; height: 40px; border-radius: 50%; text-decoration: none; display: flex; align-items: center; justify-content: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                </div>
+            </div>
         </div>
+    </div>
+    </div>
 
-        <!-- 3 Icon Buttons -->
-        <div style="display: flex; gap: 16px; justify-content: center; margin-bottom: 40px;">
-            <a href="mailto:countermat25@gmail.com" title="Email us" style="background: #1d4ed8; color: white; width: 48px; height: 48px; border-radius: 50%; text-decoration: none; display: flex; align-items: center; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-            </a>
-            <a href="https://wa.me/8613128969183" target="_blank" title="WhatsApp" style="background: #16a34a; color: white; width: 48px; height: 48px; border-radius: 50%; text-decoration: none; display: flex; align-items: center; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
-            </a>
-            <a href="https://x.com/countermat_2035" target="_blank" title="Chat on X" style="background: #000; color: white; width: 48px; height: 48px; border-radius: 50%; text-decoration: none; display: flex; align-items: center; justify-content: center;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-            </a>
-        </div>
-
-        <!-- Contact Info -->
-        <div style="margin-bottom: 30px;">
-            <p><strong>Email:</strong> <a href="mailto:countermat25@gmail.com" style="color: #60a5fa; text-decoration: none;">countermat25@gmail.com</a></p>
-            <p><strong>WhatsApp:</strong> +8613124013360</p>
-        </div>
-
-        <!-- Copyright -->
-        <p style="opacity: 0.6; font-size: 0.95rem;">
+    <div style="background: #05070d; padding: 22px 20px;">
+        <p style="opacity: 0.6; font-size: 0.95rem; text-align: center; margin: 0;">
             © 2026 CustomCounterMat. All Rights Reserved.
         </p>
     </div>
 </footer>
 
 <style>
-    .footer-nav :global(nav) {
-        margin-bottom: 40px;
+    .footer-columns {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 2.5rem;
+        text-align: center;
     }
-    .footer-nav :global(ul) {
-        list-style: none;
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        justify-content: center;
-        margin: 0;
-        padding: 0;
-        font-size: 1.1rem;
+    .footer-heading {
+        font-size: 1.6rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        color: white;
     }
-    .footer-nav :global(a) {
+    .footer-heading-link {
         color: white;
         text-decoration: none;
     }
-    .footer-nav :global(a[aria-current="page"]) {
+    .footer-heading-link:hover {
         color: #f97316;
-        font-weight: 600;
+    }
+    .footer-heading-link.active {
+        color: #f97316;
+    }
+    .footer-subheading {
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        margin: 24px 0 12px;
+        color: #cbd5e1;
+    }
+    .footer-line {
+        margin: 0 0 10px;
+        color: #e2e8f0;
+        line-height: 1.5;
+    }
+    .footer-link {
+        display: block;
+        color: #e2e8f0;
+        text-decoration: none;
+        margin-bottom: 12px;
+        line-height: 1.4;
+    }
+    .footer-link:hover {
+        color: #f97316;
+    }
+    .social-icon {
+        color: white;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: transform 0.15s, filter 0.15s;
+    }
+    .social-icon:hover {
+        transform: translateY(-2px);
+        filter: brightness(1.1);
+    }
+
+    .footer-columns > div:nth-child(1),
+    .footer-columns > div:nth-child(2),
+    .footer-columns > div:nth-child(3),
+    .footer-columns > div:nth-child(4) {
+        text-align: left;
+    }
+
+    @media (max-width: 900px) {
+        .footer-columns {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+    @media (max-width: 600px) {
+        .footer-columns {
+            grid-template-columns: 1fr;
+        }
+        .footer-columns > div {
+            margin-bottom: 30px;
+        }
     }
 </style>
