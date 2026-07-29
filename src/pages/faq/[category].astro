@@ -1,0 +1,174 @@
+---
+// src/pages/faq/[category].astro
+import Header from '../../components/Header.astro';
+import { craftQuery } from '../../lib/craft';
+
+// Fixed set of 8 FAQ categories (slug -> display name + short intro)
+const CATEGORIES = [
+  { slug: 'ordering', title: 'Ordering', intro: 'MOQs, quotes, production timelines, and reorders.' },
+  { slug: 'payment', title: 'Payment', intro: 'Deposits, accepted payment methods, and volume pricing.' },
+  { slug: 'artwork-design', title: 'Artwork & Design', intro: 'File formats, proofs, resolution, and design support.' },
+  { slug: 'printing', title: 'Printing', intro: 'Color matching, printing methods, and print durability.' },
+  { slug: 'product-materials', title: 'Product & Materials', intro: 'Materials, sizes, shapes, and durability of our mats.' },
+  { slug: 'packaging', title: 'Packaging', intro: 'Export packaging, retail-ready options, and damage claims.' },
+  { slug: 'shipping-logistics', title: 'Shipping & Logistics', intro: 'Countries served, couriers, delivery times, and customs.' },
+  { slug: 'company-oem', title: 'Company & OEM', intro: 'Who we are, OEM services, certifications, and how to reach us.' },
+];
+
+export async function getStaticPaths() {
+  const categorySlugs = [
+    'ordering',
+    'payment',
+    'artwork-design',
+    'printing',
+    'product-materials',
+    'packaging',
+    'shipping-logistics',
+    'company-oem',
+  ];
+
+  return categorySlugs.map((slug) => ({
+    params: { category: slug },
+  }));
+}
+
+const { category } = Astro.params;
+const categoryInfo = CATEGORIES.find((c) => c.slug === category);
+
+const query = `
+  query FaqByCategory {
+    entries(section: "faq", limit: 200) {
+      ... on faq_faqQuestion_Entry {
+        question
+        shortAnswer
+        answer
+        faqSortOrder
+        featured
+        seoTitle
+        seoDescription
+        faqCategory {
+          title
+          slug
+        }
+      }
+    }
+  }
+`;
+
+const data = await craftQuery(query);
+const allEntries = data?.entries || [];
+
+const categoryEntries = allEntries
+  .filter((e) => e.faqCategory?.[0]?.slug === category)
+  .sort((a, b) => (a.faqSortOrder ?? 0) - (b.faqSortOrder ?? 0));
+
+function slugify(text) {
+  return text
+    .toLowerCase()
+    .replace(/[^\w\s-]/g, '')
+    .trim()
+    .replace(/\s+/g, '-');
+}
+
+const pageTitle = `${categoryInfo?.title || 'FAQ'} FAQ - Custom Counter Mats`;
+const pageDescription = categoryInfo?.intro || 'Frequently asked questions about custom counter mats.';
+
+// FAQPage JSON-LD structured data
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: categoryEntries.map((e) => ({
+    '@type': 'Question',
+    name: e.question,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: e.shortAnswer || e.answer,
+    },
+  })),
+};
+---
+
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDescription} />
+  <link rel="canonical" href={`https://customcountermat.com/faq/${category}`} />
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+</head>
+<body style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
+  <Header currentPage="faq" />
+
+  <main style="max-width: 900px; margin: 0 auto; padding: 3rem 20px;">
+    <a href="/faq" style="color: #f97316; text-decoration: none; font-size: 0.95rem;">&larr; Back to FAQ</a>
+
+    <h1 style="font-size: 2.4rem; margin-top: 1rem; margin-bottom: 0.5rem;">{categoryInfo?.title} FAQ</h1>
+    <p style="font-size: 1.1rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 2.5rem;">
+      {categoryInfo?.intro}
+    </p>
+
+    {categoryEntries.length === 0 && (
+      <p style="color: #94a3b8;">No questions in this category yet.</p>
+    )}
+
+    <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+      {categoryEntries.map((entry) => (
+        <details
+          id={slugify(entry.question)}
+          style="background: #26334a; border: 1px solid #334155; border-radius: 8px; padding: 1rem 1.25rem;"
+        >
+          <summary
+            style="cursor: pointer; font-weight: 600; font-size: 1.05rem; color: white; list-style: none;"
+          >
+            {entry.question}
+          </summary>
+          <div style="margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid #334155; color: #cbd5e1; line-height: 1.6; font-size: 1rem;">
+            <p set:html={entry.answer} />
+          </div>
+        </details>
+      ))}
+    </div>
+
+    <!-- Category nav -->
+    <div style="margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #334155;">
+      <h2 style="font-size: 1.2rem; margin-bottom: 1rem; color: #94a3b8;">Browse other FAQ topics</h2>
+      <div style="display: flex; gap: 0.75rem; flex-wrap: wrap;">
+        {CATEGORIES.filter((c) => c.slug !== category).map((c) => (
+          <a
+            href={`/faq/${c.slug}`}
+            style="color: #f97316; text-decoration: none; background: #26334a; border: 1px solid #334155; border-radius: 6px; padding: 0.5rem 1rem; font-size: 0.9rem;"
+          >
+            {c.title}
+          </a>
+        ))}
+      </div>
+    </div>
+
+    <!-- CTA band -->
+    <div style="margin-top: 2.5rem;">
+      <p style="color: #cbd5e1; margin-bottom: 1rem;">Still have questions? We're happy to help.</p>
+      <a
+        href="/contact"
+        style="display: inline-block; background: #f97316; color: white; padding: 0.9rem 2rem; border-radius: 6px; text-decoration: none; font-weight: 600;"
+      >Request a Quote</a>
+
+      <div style="display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;">
+        <a
+          href="https://wa.me/8613168787818"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: #f97316; border: 2px solid #f97316; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600;"
+        >WhatsApp</a>
+
+        <a
+          href="https://x.com/countermat_2035"
+          target="_blank"
+          rel="noopener noreferrer"
+          style="display: inline-flex; align-items: center; gap: 0.5rem; background: transparent; color: #f97316; border: 2px solid #f97316; padding: 0.75rem 1.75rem; border-radius: 6px; text-decoration: none; font-weight: 600;"
+        >XChat</a>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
