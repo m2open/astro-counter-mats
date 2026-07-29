@@ -1,26 +1,74 @@
 ---
-// src/pages/home.astro (or rename to index.astro to serve as your site root)
+// CustomCounterMat Home Page v2.1
+// Premium Industrial Manufacturer Design
+
 const productLines = [
-  { name: "Hard Surface Counter Mats", desc: "Durable, easy-clean surfaces built for daily commercial use.", slug: "hard-surface-counter-mats" },
-  { name: "Fabric Counter Mats", desc: "Soft-touch mats with custom print and branding options.", slug: "fabric-counter-mats" },
-  { name: "Changeable Insert Counter Mats", desc: "Swap-in graphics for seasonal promotions or rotating branding.", slug: "changeable-insert-counter-mats" },
-  { name: "Premium Bar Counter Mats", desc: "Heavy-duty mats designed for bars, breweries, and hospitality.", slug: "premium-bar-counter-mats" },
-  { name: "Eco-friendly Counter Mats", desc: "Sustainable materials without compromising on durability.", slug: "eco-friendly-counter-mats" },
-  { name: "Custom Shapes & Sizes", desc: "Fully bespoke dimensions and profiles built to your exact spec.", slug: "custom-shapes-sizes" },
+  {
+    name: "Hard Surface Counter Mats",
+    desc: "Durable commercial surfaces designed for long-term branding applications.",
+    slug: "hard-surface-counter-mats"
+  },
+  {
+    name: "Fabric Counter Mats",
+    desc: "Soft-touch promotional mats with high-quality custom printing.",
+    slug: "fabric-counter-mats"
+  },
+  {
+    name: "Changeable Insert Counter Mats",
+    desc: "Flexible solutions for seasonal campaigns and replaceable graphics.",
+    slug: "changeable-insert-counter-mats"
+  },
+  {
+    name: "Premium Bar Counter Mats",
+    desc: "Heavy-duty mats developed for hospitality, bars, and beverage brands.",
+    slug: "premium-bar-counter-mats"
+  },
+  {
+    name: "Eco-friendly Counter Mats",
+    desc: "Sustainable material options for responsible brand promotion.",
+    slug: "eco-friendly-counter-mats"
+  },
+  {
+    name: "Custom Shapes & Sizes",
+    desc: "Fully customized dimensions and specifications for unique projects.",
+    slug: "custom-shapes-sizes"
+  }
+];
+
+const capabilities = [
+  {
+    title: "Manufacturing Expertise",
+    desc: "Complete production knowledge from material selection to finished products."
+  },
+  {
+    title: "Custom Engineering",
+    desc: "Every project is developed around your specifications and market needs."
+  },
+  {
+    title: "Quality Control",
+    desc: "Consistent production standards for international business partners."
+  },
+  {
+    title: "Export Support",
+    desc: "Professional documentation and shipping coordination worldwide."
+  }
 ];
 
 const processSteps = [
-  { title: "Inquiry", desc: "Tell us your product needs, quantity, and target market." },
-  { title: "Sample & Proof", desc: "We produce a sample and confirm specs before full production." },
-  { title: "Production", desc: "Your order is manufactured to spec with quality checks throughout." },
-  { title: "Export & Shipping", desc: "We handle export documentation and coordinate shipping to your destination." },
+  "Project Discussion",
+  "Artwork & Specification Review",
+  "Sample Approval",
+  "Mass Production",
+  "Global Delivery"
 ];
 
-const features = [
-  { title: "Low Minimum Order Quantities", desc: "Flexible MOQs designed for brands testing new markets as well as established distributors." },
-  { title: "Full Customization", desc: "Choose your material, thickness, printing method, and packaging — every mat is built to your spec." },
-  { title: "Fast Sample Turnaround", desc: "Get a physical sample in your hands quickly, before committing to a production run." },
-  { title: "Factory-Direct Pricing", desc: "Work directly with the manufacturer — no middleman markup." },
+const industries = [
+  "Retail Brands",
+  "Hospitality",
+  "Bars & Breweries",
+  "Food & Beverage",
+  "Promotional Agencies",
+  "Corporate Branding"
 ];
 ---
 
@@ -28,240 +76,529 @@ const features = [
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Custom Counter Mats | OEM & Private Label Manufacturer</title>
-  <meta name="description" content="OEM and private label counter mat manufacturing for distributors, retailers, and brands worldwide. Flexible MOQs, fast samples, reliable export shipping." />
+
+  <title>
+    Custom Counter Mats | OEM Manufacturer & Private Label Supplier
+  </title>
+
+  <meta
+    name="description"
+    content="Custom counter mat OEM manufacturing for global brands, distributors and retailers. Factory direct production with custom materials, printing and worldwide shipping."
+  />
 </head>
+
 <body>
 
-  <!-- 1. Hero -->
-  <section class="hero">
-    <h1>Custom Counter Mats, Manufactured to Your Spec</h1>
-    <p class="subhead">OEM & private label production for distributors, retailers, and brands worldwide. Flexible MOQs, fast samples, reliable export shipping.</p>
-    <div class="cta-group">
-      <a href="#rfq" class="btn btn-primary">Request a Quote</a>
-      <a href="https://x.com/countermat_2035" target="_blank" class="btn btn-secondary">XChat</a>
-      <a href="mailto:countermat25@gmail.com" class="btn btn-secondary">Email Us</a>
-    </div>
-    <div class="trust-strip">
-      Exporting Worldwide <!-- TODO: add country count, certifications, and years in business once confirmed -->
-    </div>
-  </section>
+<section class="hero">
 
-  <!-- 2. Product Lines -->
-  <section class="product-lines">
-    <h2>Our Product Lines</h2>
-    <p class="section-subhead">Six core lines, fully customizable to your brand, material, and size requirements.</p>
-    <div class="grid">
-      {productLines.map((p) => (
-        <div class="card">
-          <h3>{p.name}</h3>
-          <p>{p.desc}</p>
-          <a href={`/products/${p.slug}`}>See Specs →</a>
+  <p class="eyebrow">
+    OEM Counter Mat Manufacturer
+  </p>
+
+  <h1>
+    Custom Counter Mats
+    Manufactured for Global Brands
+  </h1>
+
+  <p class="hero-text">
+    OEM and private label counter mat manufacturing with
+    custom materials, printing, packaging and worldwide
+    export support.
+  </p>
+
+  <div class="actions">
+
+    <a href="#quote" class="btn primary">
+      Request a Quote
+    </a>
+
+    <a href="/products" class="btn secondary">
+      View Products
+    </a>
+
+  </div>
+
+</section>
+
+
+<section class="trust-bar">
+
+  <div>
+    OEM Manufacturing
+  </div>
+
+  <div>
+    Custom Solutions
+  </div>
+
+  <div>
+    Factory Direct
+  </div>
+
+  <div>
+    Global Shipping
+  </div>
+
+</section>
+
+
+<section class="products">
+
+  <div class="section-header">
+
+    <p class="eyebrow">
+      Product Solutions
+    </p>
+
+    <h2>
+      Custom Counter Mat Product Lines
+    </h2>
+
+    <p>
+      Professional OEM solutions designed for brands,
+      distributors and promotional markets worldwide.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    {productLines.map((product) => (
+
+      <article class="card">
+
+        <h3>
+          {product.name}
+        </h3>
+
+        <p>
+          {product.desc}
+        </p>
+
+        <a href={`/products/${product.slug}/`}>
+          Explore →
+        </a>
+
+      </article>
+
+    ))}
+
+  </div>
+
+</section>
+<section class="capabilities">
+
+  <div class="section-header">
+
+    <p class="eyebrow">
+      Why Partner With Us
+    </p>
+
+    <h2>
+      Built for Long-Term OEM Partnerships
+    </h2>
+
+    <p>
+      We support global companies with reliable
+      manufacturing, customization and export services.
+    </p>
+
+  </div>
+
+
+  <div class="grid">
+
+    {capabilities.map((item) => (
+
+      <article class="card">
+
+        <h3>
+          {item.title}
+        </h3>
+
+        <p>
+          {item.desc}
+        </p>
+
+      </article>
+
+    ))}
+
+  </div>
+
+</section>
+
+
+
+<section class="process">
+
+  <div class="section-header">
+
+    <p class="eyebrow">
+      Manufacturing Process
+    </p>
+
+    <h2>
+      From Concept to Global Delivery
+    </h2>
+
+  </div>
+
+
+  <div class="steps">
+
+    {processSteps.map((step, index) => (
+
+      <div class="step">
+
+        <div class="number">
+          {index + 1}
         </div>
-      ))}
-    </div>
-  </section>
 
-  <!-- 3. Why OEM With Us -->
-  <section class="why-oem">
-    <h2>Built for OEM & Private Label Partners</h2>
-    <p class="section-subhead">We handle the manufacturing complexity so your brand can focus on selling.</p>
-    <div class="grid">
-      {features.map((f) => (
-        <div class="feature">
-          <h3>{f.title}</h3>
-          <p>{f.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
+        <h3>
+          {step}
+        </h3>
 
-  <!-- 4. How It Works -->
-  <section class="how-it-works">
-    <h2>From Inquiry to Delivery</h2>
-    <div class="steps">
-      {processSteps.map((step, i) => (
-        <div class="step">
-          <div class="step-number">{i + 1}</div>
-          <h3>{step.title}</h3>
-          <p>{step.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
+      </div>
 
-  <!-- 5. Markets We Export To -->
-  <section class="markets">
-    <h2>Trusted by Buyers Worldwide</h2>
-    <p class="section-subhead">Currently shipping to [region/country list — North America, Europe, Australia, etc.]</p>
-    <!-- Map or region grid placeholder -->
-    <div class="map-placeholder">[ Export map / region grid goes here ]</div>
-  </section>
+    ))}
 
-  <!-- 6. Custom Capabilities Callout -->
-  <section class="custom-callout">
-    <h2>Don't See Exactly What You Need?</h2>
-    <p>Our Custom Shapes & Sizes line means we're not limited to a catalog. Send us your specifications — material, dimensions, printing — and we'll quote a fully custom solution.</p>
-    <a href="#rfq" class="btn btn-primary">Start a Custom Quote</a>
-  </section>
+  </div>
 
-  <!-- 7. Final CTA / RFQ Form -->
-  <section class="final-cta" id="rfq">
-    <h2>Ready to Get a Quote?</h2>
-    <p>Tell us about your product needs and we'll respond with pricing and lead time.</p>
-    <form class="rfq-form" method="POST" action="/api/rfq">
-      <label>
-        Name
-        <input type="text" name="name" required />
-      </label>
-      <label>
-        Email
-        <input type="email" name="email" required />
-      </label>
-      <label>
-        Product Interest
-        <select name="product_interest" required>
-          <option value="">Select a product line</option>
-          {productLines.map((p) => (
-            <option value={p.slug}>{p.name}</option>
-          ))}
-        </select>
-      </label>
-      <label>
-        Quantity
-        <input type="text" name="quantity" placeholder="e.g. 500 units" />
-      </label>
-      <button type="submit" class="btn btn-primary">Submit RFQ</button>
-    </form>
-    <p class="alt-contact">Prefer to talk directly? Reach us on <a href="https://x.com/countermat_2035" target="_blank">XChat</a> or <a href="mailto:countermat25@gmail.com">Email</a>.</p>
-  </section>
+</section>
+
+
+
+<section class="industries">
+
+  <div class="section-header">
+
+    <p class="eyebrow">
+      Industries We Serve
+    </p>
+
+    <h2>
+      Supporting Brands Across Multiple Markets
+    </h2>
+
+  </div>
+
+
+  <div class="industry-grid">
+
+    {industries.map((industry) => (
+
+      <div class="industry">
+        {industry}
+      </div>
+
+    ))}
+
+  </div>
+
+</section>
+
+
+
+<section class="global">
+
+  <div class="section-header">
+
+    <p class="eyebrow">
+      Global Export Capability
+    </p>
+
+    <h2>
+      Serving International Markets
+    </h2>
+
+    <p>
+      Supporting distributors, retailers and brands
+      with reliable production and worldwide delivery.
+    </p>
+
+  </div>
+
+
+  <div class="market-grid">
+
+    <div>North America</div>
+    <div>Europe</div>
+    <div>Australia</div>
+    <div>Asia</div>
+    <div>Middle East</div>
+
+  </div>
+
+</section>
+
+
+
+<section class="cta" id="quote">
+
+  <h2>
+    Ready to Develop Your Custom Counter Mat?
+  </h2>
+
+  <p>
+    Share your requirements and our team will
+    provide a production solution for your project.
+  </p>
+
+
+  <a href="mailto:countermat25@gmail.com" class="btn primary">
+    Start Your Project
+  </a>
+
+</section>
+
 
 </body>
 </html>
 
+
+
 <style>
-  section {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 4rem 1.5rem;
+
+:root {
+  --primary: #4F46E5;
+  --dark: #111827;
+  --text: #475569;
+  --light: #F8FAFC;
+  --border: #E2E8F0;
+}
+
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--dark);
+  background: #ffffff;
+}
+
+
+section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 90px 24px;
+}
+
+
+/* Hero - match index.astro */
+
+.hero {
+  text-align: center;
+  padding: 160px 24px;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  color: white;
+}
+
+
+.hero .eyebrow {
+  color: white;
+}
+
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.5rem);
+  line-height: 1.1;
+  margin: 20px auto;
+  max-width: 900px;
+}
+
+
+h2 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+
+h3 {
+  font-size: 1.25rem;
+}
+
+
+.hero-text {
+  max-width: 720px;
+  margin: auto;
+  color: rgba(255,255,255,0.9);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+
+.section-header {
+  max-width: 700px;
+  margin-bottom: 50px;
+}
+
+
+.section-header p {
+  color: var(--text);
+  font-size: 1.15rem;
+  line-height: 1.7;
+}
+
+
+.eyebrow {
+  color: var(--primary);
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  font-size: .85rem;
+}
+
+
+.actions {
+  margin-top: 40px;
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+}
+
+
+.btn {
+  padding:14px 32px;
+  border-radius:8px;
+  text-decoration:none;
+  font-weight:700;
+  transition:.25s;
+}
+
+
+.btn:hover {
+  transform:translateY(-2px);
+}
+
+
+.primary {
+  background:var(--primary);
+  color:white;
+}
+
+
+.secondary {
+  background:white;
+  border:1px solid white;
+  color:#1e40af;
+}
+
+
+/* Trust Bar */
+
+.trust-bar {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  background:var(--light);
+  border-radius:16px;
+  text-align:center;
+  font-weight:700;
+  padding:32px 20px;
+  gap:20px;
+}
+
+
+/* Cards */
+
+.grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:24px;
+}
+
+
+.card {
+  padding:32px;
+  background:var(--light);
+  border:1px solid var(--border);
+  border-radius:16px;
+  transition:.25s;
+}
+
+
+.card:hover {
+  border-color:var(--primary);
+  transform:translateY(-5px);
+}
+
+
+.card a {
+  color:var(--primary);
+  font-weight:700;
+  text-decoration:none;
+}
+
+
+/* Process */
+
+.steps {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:24px;
+}
+
+
+.step {
+  text-align:center;
+}
+
+
+.number {
+  width:48px;
+  height:48px;
+  margin:auto;
+  border-radius:50%;
+  background:var(--primary);
+  color:white;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+
+/* Industry and Market */
+
+.industry-grid,
+.market-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:20px;
+}
+
+
+.industry,
+.market-grid div {
+  padding:24px;
+  background:var(--light);
+  border:1px solid var(--border);
+  border-radius:12px;
+  text-align:center;
+  font-weight:600;
+}
+
+
+/* CTA */
+
+.cta {
+  text-align:center;
+  background:var(--light);
+  border-radius:24px;
+}
+
+
+@media(max-width:768px){
+
+  .trust-bar {
+    grid-template-columns:1fr;
   }
+
+
   h1 {
-    font-size: 2.5rem;
-    line-height: 1.15;
-    margin-bottom: 1rem;
+    font-size:2.5rem;
   }
-  h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-  .section-subhead {
-    color: #555;
-    margin-bottom: 2rem;
-  }
-  .hero {
-    text-align: center;
-    padding-top: 5rem;
-  }
-  .subhead {
-    font-size: 1.15rem;
-    color: #444;
-    max-width: 640px;
-    margin: 0 auto 2rem;
-  }
-  .cta-group {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-bottom: 2rem;
-  }
-  .btn {
-    display: inline-block;
-    padding: 0.75rem 1.5rem;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 600;
-  }
-  .btn-primary {
-    background: #1a1a1a;
-    color: #fff;
-  }
-  .btn-secondary {
-    background: #f0f0f0;
-    color: #1a1a1a;
-  }
-  .trust-strip {
-    font-size: 0.9rem;
-    color: #666;
-    border-top: 1px solid #eee;
-    padding-top: 1.5rem;
-  }
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
-  }
-  .card, .feature {
-    border: 1px solid #eee;
-    border-radius: 8px;
-    padding: 1.5rem;
-  }
-  .card h3, .feature h3 {
-    margin-bottom: 0.5rem;
-    font-size: 1.1rem;
-  }
-  .steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 1.5rem;
-  }
-  .step-number {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background: #1a1a1a;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 0.75rem;
-    font-weight: 600;
-  }
-  .map-placeholder {
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    padding: 4rem 1rem;
-    text-align: center;
-    color: #999;
-  }
-  .custom-callout {
-    background: #fafafa;
-    border-radius: 12px;
-    text-align: center;
-  }
-  .rfq-form {
-    display: grid;
-    gap: 1rem;
-    max-width: 480px;
-    margin-top: 1.5rem;
-  }
-  .rfq-form label {
-    display: flex;
-    flex-direction: column;
-    gap: 0.35rem;
-    font-size: 0.9rem;
-    font-weight: 600;
-  }
-  .rfq-form input,
-  .rfq-form select {
-    padding: 0.6rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 1rem;
-  }
-  .alt-contact {
-    margin-top: 1rem;
-    font-size: 0.9rem;
-    color: #555;
-  }
+
+}
+
 </style>
