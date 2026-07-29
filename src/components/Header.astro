@@ -5,6 +5,7 @@ const currentPage =
   path.startsWith('/products') ? 'products' :
   path.startsWith('/solutions') ? 'solutions' :
   path.startsWith('/blog') ? 'blog' :
+  path.startsWith('/faq') ? 'faq' :
   path.startsWith('/contact') ? 'contact' :
   '';
 
@@ -47,6 +48,7 @@ const productLines = [
 
       <a href="/solutions" style={currentPage === 'solutions' ? 'color: #f97316; font-weight: 600; text-decoration: none;' : 'color: white; text-decoration: none;'}>Solutions</a>
       <a href="/blog" style={currentPage === 'blog' ? 'color: #f97316; font-weight: 600; text-decoration: none;' : 'color: white; text-decoration: none;'}>Blog</a>
+       <a href="/faq" style={currentPage === 'faq' ? 'color: #f97316; font-weight: 600; text-decoration: none;' : 'color: white; text-decoration: none;'}>FAQ</a>
       <a href="/contact" style={currentPage === 'contact' ? 'color: #f97316; font-weight: 600; text-decoration: none;' : 'color: white; text-decoration: none;'}>Contact</a>
 
       <div style="display: flex; gap: 10px; align-items: center;">
