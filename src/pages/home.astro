@@ -3,40 +3,46 @@
 // Premium Industrial Manufacturer Design
 const productLines = [
   {
-  name: "Hard Surface Counter Mats",
-  desc: "Durable commercial surfaces designed for long-term branding applications.",
-  slug: "hard-surface-counter-mats",
-  image: "/images/products/hard-surface-counter-mat.webp"
-},
-{
-  name: "Fabric Counter Mats",
-  desc: "Soft-touch promotional mats with high-quality custom printing.",
-  slug: "fabric-counter-mats",
-  image: "/images/products/fabric-counter-mat.webp"
-},
-{
-  name: "Changeable Insert Counter Mats",
-  desc: "Flexible solutions for seasonal campaigns and replaceable graphics.",
-  slug: "changeable-insert-counter-mats",
-  image: "/images/products/changeable-insert-counter-mat.webp"
-},
-{
-  name: "Premium Bar Counter Mats",
-  desc: "Heavy-duty mats developed for hospitality, bars, and beverage brands.",
-  slug: "premium-bar-counter-mats",
-  image: "/images/products/premium-bar-counter-mat.webp"
-},
-{
-  name: "Eco-friendly Counter Mats",
-  desc: "Sustainable material options for responsible brand promotion.",
-  slug: "eco-friendly-counter-mats",
-  image: "/images/products/eco-friendly-counter-mats.webp"
-},
+    name: "Hard Surface Counter Mats",
+    desc: "Durable commercial surfaces designed for long-term branding applications.",
+    slug: "hard-surface-counter-mats",
+    image: "/images/products/hard-surface-counter-mat.webp",
+    alt: "Custom hard surface counter mat manufactured for retail brands and commercial applications"
+  },
+  {
+    name: "Fabric Counter Mats",
+    desc: "Soft-touch promotional mats with high-quality custom printing.",
+    slug: "fabric-counter-mats",
+    image: "/images/products/fabric-counter-mat.webp",
+    alt: "Custom fabric counter mat with printed branding for promotional and retail displays"
+  },
+  {
+    name: "Changeable Insert Counter Mats",
+    desc: "Flexible solutions for seasonal campaigns and replaceable graphics.",
+    slug: "changeable-insert-counter-mats",
+    image: "/images/products/changeable-insert-counter-mat.webp",
+    alt: "Changeable insert counter mat with replaceable graphics for flexible brand promotions"
+  },
+  {
+    name: "Premium Bar Counter Mats",
+    desc: "Heavy-duty mats developed for hospitality, bars, and beverage brands.",
+    slug: "premium-bar-counter-mats",
+    image: "/images/products/premium-bar-counter-mat.webp",
+    alt: "Premium custom bar counter mat designed for hospitality and beverage brands"
+  },
+  {
+    name: "Eco-friendly Counter Mats",
+    desc: "Sustainable material options for responsible brand promotion.",
+    slug: "eco-friendly-counter-mats",
+    image: "/images/products/eco-friendly-counter-mats.webp",
+    alt: "Eco-friendly custom counter mat made with sustainable materials for brand promotion"
+  },
   {
     name: "Custom Shapes & Sizes",
     desc: "Fully customized dimensions and specifications for unique projects.",
     slug: "custom-shapes-sizes",
-    image: "/images/products/custom-shapes-sizes-counter-mat.webp"
+    image: "/images/products/custom-shapes-sizes-counter-mat.webp",
+    alt: "Custom shaped counter mat manufactured in unique sizes for brand displays"
   }
 ];
 
@@ -173,9 +179,13 @@ const industries = [
 
       <article class="card">
        
-        <img 
+        <img
           src={product.image}
-          alt={product.name}
+          alt={product.alt}
+          width="1200"
+          height="900"
+          loading="lazy"
+          decoding="async"
         />
 
         <h3>
@@ -533,6 +543,7 @@ h3 {
   object-fit:cover;
   border-radius:12px;
   margin-bottom:24px;
+  display:block;
 }
 
 .card:hover {
