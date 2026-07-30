@@ -1,37 +1,42 @@
 ---
 // CustomCounterMat Home Page v2.1
 // Premium Industrial Manufacturer Design
-
 const productLines = [
   {
-    name: "Hard Surface Counter Mats",
-    desc: "Durable commercial surfaces designed for long-term branding applications.",
-    slug: "hard-surface-counter-mats"
-  },
-  {
-    name: "Fabric Counter Mats",
-    desc: "Soft-touch promotional mats with high-quality custom printing.",
-    slug: "fabric-counter-mats"
-  },
-  {
-    name: "Changeable Insert Counter Mats",
-    desc: "Flexible solutions for seasonal campaigns and replaceable graphics.",
-    slug: "changeable-insert-counter-mats"
-  },
-  {
-    name: "Premium Bar Counter Mats",
-    desc: "Heavy-duty mats developed for hospitality, bars, and beverage brands.",
-    slug: "premium-bar-counter-mats"
-  },
-  {
-    name: "Eco-friendly Counter Mats",
-    desc: "Sustainable material options for responsible brand promotion.",
-    slug: "eco-friendly-counter-mats"
-  },
+  name: "Hard Surface Counter Mats",
+  desc: "Durable commercial surfaces designed for long-term branding applications.",
+  slug: "hard-surface-counter-mats",
+  image: "/images/products/hard-surface-counter-mat.webp"
+},
+{
+  name: "Fabric Counter Mats",
+  desc: "Soft-touch promotional mats with high-quality custom printing.",
+  slug: "fabric-counter-mats",
+  image: "/images/products/fabric-counter-mat.webp"
+},
+{
+  name: "Changeable Insert Counter Mats",
+  desc: "Flexible solutions for seasonal campaigns and replaceable graphics.",
+  slug: "changeable-insert-counter-mats",
+  image: "/images/products/changeable-insert-counter-mat.webp"
+},
+{
+  name: "Premium Bar Counter Mats",
+  desc: "Heavy-duty mats developed for hospitality, bars, and beverage brands.",
+  slug: "premium-bar-counter-mats",
+  image: "/images/products/premium-bar-counter-mat.webp"
+},
+{
+  name: "Eco-friendly Counter Mats",
+  desc: "Sustainable material options for responsible brand promotion.",
+  slug: "eco-friendly-counter-mats",
+  image: "/images/products/eco-friendly-counter-mat.webp"
+},
   {
     name: "Custom Shapes & Sizes",
     desc: "Fully customized dimensions and specifications for unique projects.",
-    slug: "custom-shapes-sizes"
+    slug: "custom-shapes-sizes",
+    image: "/images/products/custom-shapes-sizes-counter-mat.webp"
   }
 ];
 
@@ -167,6 +172,11 @@ const industries = [
     {productLines.map((product) => (
 
       <article class="card">
+       
+        <img 
+          src={product.image}
+          alt={product.name}
+        />
 
         <h3>
           {product.name}
@@ -517,6 +527,13 @@ h3 {
   transition:.25s;
 }
 
+.card img {
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:12px;
+  margin-bottom:24px;
+}
 
 .card:hover {
   border-color:var(--primary);
