@@ -1,6 +1,9 @@
 ---
+import Layout from '../components/Layout.astro';
+
 // CustomCounterMat Home Page v2.1
 // Premium Industrial Manufacturer Design
+
 const productLines = [
   {
     name: "Hard Surface Counter Mats",
@@ -65,352 +68,525 @@ const capabilities = [
   }
 ];
 
+const trustItems = [
+  {
+    number: "13+",
+    title: "Years Manufacturing Experience",
+    desc: "Over 13 years of experience producing custom counter mats and promotional products for international customers."
+  },
+  {
+    number: "OEM",
+    title: "Private Label Service",
+    desc: "Complete OEM support including custom materials, printing, packaging, and product development."
+  },
+  {
+    number: "30+",
+    title: "Export Markets",
+    desc: "Serving distributors, retailers, and brands across North America, Europe, Asia, and global markets."
+  },
+  {
+    number: "Factory",
+    title: "Production Capability",
+    desc: "Professional manufacturing processes with flexible customization for different project requirements."
+  },
+  {
+    number: "QC",
+    title: "Quality Control",
+    desc: "Strict inspection standards to ensure consistent quality and reliable international delivery."
+  }
+];
+
 const processSteps = [
-  "Project Discussion",
-  "Artwork & Specification Review",
-  "Sample Approval",
-  "Mass Production",
-  "Global Delivery"
+  {
+    number: "1",
+    title: "Project Discussion",
+    desc: "Understand your product requirements, quantity, target market, and application."
+  },
+  {
+    number: "2",
+    title: "Artwork & Specification Review",
+    desc: "Review dimensions, materials, printing, colors, packaging, and technical requirements."
+  },
+  {
+    number: "3",
+    title: "Sample Approval",
+    desc: "Produce samples for confirmation of appearance, materials, printing, and specifications."
+  },
+  {
+    number: "4",
+    title: "Mass Production",
+    desc: "Manufacture according to the approved specifications with production and quality control."
+  },
+  {
+    number: "5",
+    title: "Global Delivery",
+    desc: "Prepare export packaging, documentation, and coordinate shipment to your destination."
+  }
 ];
 
 const industries = [
-  "Retail Brands",
-  "Hospitality",
-  "Bars & Breweries",
-  "Food & Beverage",
-  "Promotional Agencies",
-  "Corporate Branding"
+  {
+    title: "Retail Brands",
+    desc: "Custom counter mats for retail displays, promotions, and branded point-of-sale environments."
+  },
+  {
+    title: "Hospitality",
+    desc: "Durable branded mats designed for hotels, restaurants, cafés, and hospitality environments."
+  },
+  {
+    title: "Bars & Breweries",
+    desc: "Custom promotional mats developed for bars, breweries, beverage brands, and drink promotions."
+  },
+  {
+    title: "Food & Beverage",
+    desc: "Branded counter mats supporting product launches, promotions, and food and beverage campaigns."
+  },
+  {
+    title: "Promotional Agencies",
+    desc: "OEM production support for agencies managing customized promotional products for their clients."
+  },
+  {
+    title: "Corporate Branding",
+    desc: "Custom branded mats for corporate events, campaigns, offices, and customer engagement programs."
+  }
 ];
 ---
 
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<Layout title="Custom Counter Mats | OEM Manufacturer & Private Label Supplier">
 
-  <title>
-    Custom Counter Mats | OEM Manufacturer & Private Label Supplier
-  </title>
-
-  <meta
-    name="description"
-    content="Custom counter mat OEM manufacturing for global brands, distributors and retailers. Factory direct production with custom materials, printing and worldwide shipping."
-  />
-</head>
-
-<body>
-
-<section class="hero">
-
-  <p class="eyebrow">
-    OEM Counter Mat Manufacturer
-  </p>
-
-  <h1>
-    Custom Counter Mats
-    Manufactured for Global Brands
-  </h1>
-
-  <p class="hero-text">
-    OEM and private label counter mat manufacturing with
-    custom materials, printing, packaging and worldwide
-    export support.
-  </p>
-
-  <div class="actions">
-
-    <a href="#quote" class="btn primary">
-      Request a Quote
-    </a>
-
-    <a href="/products" class="btn secondary">
-      View Products
-    </a>
-
-  </div>
-
-</section>
-
-
-<section class="trust-bar">
-
-  <div>
-    OEM Manufacturing
-  </div>
-
-  <div>
-    Custom Solutions
-  </div>
-
-  <div>
-    Factory Direct
-  </div>
-
-  <div>
-    Global Shipping
-  </div>
-
-</section>
-
-
-<section class="products">
-
-  <div class="section-header">
+  <section class="hero">
 
     <p class="eyebrow">
-      Product Solutions
+      OEM Counter Mat Manufacturer
     </p>
 
-    <h2>
-      Custom Counter Mat Product Lines
-    </h2>
+    <h1>
+      Custom Counter Mats
+      Manufactured for Global Brands
+    </h1>
 
-    <p>
-      Professional OEM solutions designed for brands,
-      distributors and promotional markets worldwide.
+    <p class="hero-text">
+      OEM and private label counter mat manufacturing with
+      custom materials, printing, packaging and worldwide
+      export support.
     </p>
 
-  </div>
+    <div class="actions">
+
+      <a href="#quote" class="btn primary">
+        Request a Quote
+      </a>
+
+      <a href="/products" class="btn secondary">
+
+        View Products
+
+      </a>
+
+    </div>
+
+  </section>
 
 
-  <div class="grid">
+  <section class="trust-bar">
 
-    {productLines.map((product) => (
+    <div>
+      OEM Manufacturing
+    </div>
 
-      <article class="card">
-       
-        <img
-          src={product.image}
-          alt={product.alt}
-          width="1200"
-          height="900"
-          loading="lazy"
-          decoding="async"
-        />
+    <div>
+      Custom Solutions
+    </div>
 
-        <h3>
-          {product.name}
-        </h3>
+    <div>
+      Factory Direct
+    </div>
 
-        <p>
-          {product.desc}
-        </p>
+    <div>
+      Global Shipping
+    </div>
 
-        <a href={`/products/${product.slug}/`}>
-          Explore →
-        </a>
-
-      </article>
-
-    ))}
-
-  </div>
-
-</section>
-<section class="capabilities">
-
-  <div class="section-header">
-
-    <p class="eyebrow">
-      Why Partner With Us
-    </p>
-
-    <h2>
-      Built for Long-Term OEM Partnerships
-    </h2>
-
-    <p>
-      We support global companies with reliable
-      manufacturing, customization and export services.
-    </p>
-
-  </div>
+  </section>
 
 
-  <div class="grid">
+  <section class="products">
 
-    {capabilities.map((item) => (
+    <div class="section-header">
 
-      <article class="card">
+      <p class="eyebrow">
+        Product Solutions
+      </p>
 
-        <h3>
-          {item.title}
-        </h3>
+      <h2>
+        Custom Counter Mat Product Lines
+      </h2>
 
-        <p>
-          {item.desc}
-        </p>
+      <p>
+        Professional OEM solutions designed for brands,
+        distributors and promotional markets worldwide.
+      </p>
 
-      </article>
-
-    ))}
-
-  </div>
-
-</section>
+    </div>
 
 
+    <div class="grid">
 
-<section class="process">
+      {productLines.map((product) => (
 
-  <div class="section-header">
+        <article class="card">
 
-    <p class="eyebrow">
-      Manufacturing Process
-    </p>
+          <img
+            src={product.image}
+            alt={product.alt}
+            width="1200"
+            height="900"
+            loading="lazy"
+            decoding="async"
+          />
 
-    <h2>
-      From Concept to Global Delivery
-    </h2>
+          <h3>
+            {product.name}
+          </h3>
 
-  </div>
+          <p>
+            {product.desc}
+          </p>
+
+          <a href={`/products/${product.slug}/`}>
+            Explore →
+          </a>
+
+        </article>
+
+      ))}
+
+    </div>
+
+  </section>
 
 
-  <div class="steps">
+  <section class="trust-section">
 
-    {processSteps.map((step, index) => (
+    <div class="section-header">
 
-      <div class="step">
+      <p class="eyebrow">
+        Manufacturing Strength
+      </p>
 
-        <div class="number">
-          {index + 1}
+      <h2>
+        Your Reliable OEM Counter Mat Partner
+      </h2>
+
+      <p>
+        We combine manufacturing experience, customization capability,
+        and export expertise to support global brands and distributors.
+      </p>
+
+    </div>
+
+
+    <div class="trust-grid">
+
+      {trustItems.map((item) => (
+
+        <article class="trust-card">
+
+          <div class="trust-number">
+            {item.number}
+          </div>
+
+          <h3>
+            {item.title}
+          </h3>
+
+          <p>
+            {item.desc}
+          </p>
+
+        </article>
+
+      ))}
+
+    </div>
+
+  </section>
+
+
+  <section class="capabilities">
+
+    <div class="section-header">
+
+      <p class="eyebrow">
+        Why Partner With Us
+      </p>
+
+      <h2>
+        Built for Long-Term OEM Partnerships
+      </h2>
+
+      <p>
+        We support global companies with reliable
+        manufacturing, customization and export services.
+      </p>
+
+    </div>
+
+
+    <div class="grid">
+
+      {capabilities.map((item) => (
+
+        <article class="card">
+
+          <h3>
+            {item.title}
+          </h3>
+
+          <p>
+            {item.desc}
+          </p>
+
+        </article>
+
+      ))}
+
+    </div>
+
+  </section>
+
+
+  <section class="factory">
+
+    <div class="section-header">
+
+      <p class="eyebrow">
+        Our Factory
+      </p>
+
+      <h2>
+        Trusted OEM Manufacturing Capability
+      </h2>
+
+      <p>
+        With 13+ years of manufacturing experience, we support
+        global brands, distributors and promotional companies
+        with reliable OEM and private label counter mat production.
+      </p>
+
+    </div>
+
+
+    <div class="factory-building">
+
+      <img
+        src="/images/company/factory-building.webp"
+        alt="GIFT IDEA LIMITED custom counter mat manufacturing facility"
+        width="1600"
+        height="900"
+        loading="lazy"
+        decoding="async"
+      />
+
+    </div>
+
+
+    <div class="factory-info">
+
+      <div>
+        <strong>13+ Years</strong>
+        <span>Manufacturing Experience</span>
+      </div>
+
+      <div>
+        <strong>OEM / Private Label</strong>
+        <span>Custom Manufacturing Service</span>
+      </div>
+
+      <div>
+        <strong>Global Export</strong>
+        <span>International Market Support</span>
+      </div>
+
+      <div>
+        <strong>Quality Control</strong>
+        <span>Production Quality Management</span>
+      </div>
+
+    </div>
+
+
+    <div class="factory-collage">
+
+      <img
+        src="/images/company/factory-production-collage.webp"
+        alt="OEM counter mat manufacturing process including printing, warehouse and production equipment"
+        width="1600"
+        height="1200"
+        loading="lazy"
+        decoding="async"
+      />
+
+    </div>
+
+  </section>
+
+
+  <section class="process">
+
+    <div class="section-header">
+
+      <p class="eyebrow">
+        Manufacturing Process
+      </p>
+
+      <h2>
+        From Concept to Global Delivery
+      </h2>
+
+    </div>
+
+
+    <div class="steps">
+
+      {processSteps.map((step) => (
+
+        <div class="step">
+
+          <div class="number">
+            {step.number}
+          </div>
+
+          <h3>
+            {step.title}
+          </h3>
+
+          <p>
+            {step.desc}
+          </p>
+
         </div>
 
-        <h3>
-          {step}
-        </h3>
+      ))}
 
-      </div>
+    </div>
 
-    ))}
-
-  </div>
-
-</section>
+  </section>
 
 
+  <section class="industries">
 
-<section class="industries">
+    <div class="section-header">
 
-  <div class="section-header">
+      <p class="eyebrow">
+        Industries We Serve
+      </p>
 
-    <p class="eyebrow">
-      Industries We Serve
-    </p>
+      <h2>
+        Supporting Brands Across Multiple Markets
+      </h2>
+
+    </div>
+
+
+    <div class="industry-grid">
+
+      {industries.map((industry) => (
+
+        <div class="industry">
+
+          <h3>
+            {industry.title}
+          </h3>
+
+          <p>
+            {industry.desc}
+          </p>
+
+        </div>
+
+      ))}
+
+    </div>
+
+  </section>
+
+
+  <section class="global">
+
+    <div class="section-header">
+
+      <p class="eyebrow">
+        Global Export Capability
+      </p>
+
+      <h2>
+        Serving International Markets
+      </h2>
+
+      <p>
+        Supporting distributors, retailers and brands
+        with reliable production and worldwide delivery.
+      </p>
+
+    </div>
+
+
+    <img
+      src="/images/company/global-export-map.webp"
+      alt="Global export markets for custom counter mats including North America, Europe, Asia, Middle East and Australia"
+      width="1600"
+      height="900"
+      loading="lazy"
+      decoding="async"
+    />
+
+
+    <div class="market-grid">
+
+      <div>North America</div>
+      <div>Europe</div>
+      <div>Australia</div>
+      <div>Asia</div>
+      <div>Middle East</div>
+
+    </div>
+
+  </section>
+
+
+  <section class="cta" id="quote">
 
     <h2>
-      Supporting Brands Across Multiple Markets
-    </h2>
-
-  </div>
-
-
-  <div class="industry-grid">
-
-    {industries.map((industry) => (
-
-      <div class="industry">
-        {industry}
-      </div>
-
-    ))}
-
-  </div>
-
-</section>
-
-
-
-<section class="global">
-
-  <div class="section-header">
-
-    <p class="eyebrow">
-      Global Export Capability
-    </p>
-
-    <h2>
-      Serving International Markets
+      Ready to Develop Your Custom Counter Mat?
     </h2>
 
     <p>
-      Supporting distributors, retailers and brands
-      with reliable production and worldwide delivery.
+      Share your requirements and our team will
+      provide a production solution for your project.
     </p>
 
-  </div>
+    <a href="mailto:countermat25@gmail.com" class="btn primary">
+      Start Your Project
+    </a>
 
+  </section>
 
-  <div class="market-grid">
-
-    <div>North America</div>
-    <div>Europe</div>
-    <div>Australia</div>
-    <div>Asia</div>
-    <div>Middle East</div>
-
-  </div>
-
-</section>
-
-
-
-<section class="cta" id="quote">
-
-  <h2>
-    Ready to Develop Your Custom Counter Mat?
-  </h2>
-
-  <p>
-    Share your requirements and our team will
-    provide a production solution for your project.
-  </p>
-
-
-  <a href="mailto:countermat25@gmail.com" class="btn primary">
-    Start Your Project
-  </a>
-
-</section>
-
-
-</body>
-</html>
-
+</Layout>
 
 
 <style>
 
-:root {
-  --primary: #4F46E5;
-  --dark: #111827;
-  --text: #475569;
-  --light: #F8FAFC;
-  --border: #E2E8F0;
-}
-
-
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--dark);
-  background: #ffffff;
 }
 
 
-section {
-  max-width: 1200px;
-  margin: auto;
-  padding: 90px 24px;
-}
-
-
-/* Hero - match index.astro */
+/* Hero */
 
 .hero {
   text-align: center;
   padding: 160px 24px;
-  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  background: var(--primary);
   color: white;
 }
 
@@ -455,7 +631,7 @@ h3 {
 
 
 .section-header p {
-  color: var(--text);
+  color: #94a3b8;
   font-size: 1.15rem;
   line-height: 1.7;
 }
@@ -472,117 +648,207 @@ h3 {
 
 .actions {
   margin-top: 40px;
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
 
 .btn {
-  padding:14px 32px;
-  border-radius:8px;
-  text-decoration:none;
-  font-weight:700;
-  transition:.25s;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: .25s;
 }
 
 
 .btn:hover {
-  transform:translateY(-2px);
+  transform: translateY(-2px);
 }
 
 
 .primary {
-  background:var(--primary);
-  color:white;
+  background: var(--accent);
+  color: white;
+  padding: 18px 48px;
+  border-radius: 50px;
+  font-size: 1.2rem;
 }
 
-
 .secondary {
-  background:white;
-  border:1px solid white;
-  color:#1e40af;
+  background: white;
+  border: 1px solid white;
+  color: var(--primary);
+  padding: 18px 48px;
+  border-radius: 50px;
+  font-size: 1.2rem;
 }
 
 
 /* Trust Bar */
 
 .trust-bar {
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  background:var(--light);
-  border-radius:16px;
-  text-align:center;
-  font-weight:700;
-  padding:32px 20px;
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  background: var(--gray);
+  border-radius: 16px;
+  text-align: center;
+  font-weight: 700;
+  padding: 32px 20px;
+  gap: 20px;
 }
 
 
 /* Cards */
 
 .grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:24px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
 }
 
 
 .card {
-  padding:32px;
-  background:var(--light);
-  border:1px solid var(--border);
-  border-radius:16px;
-  transition:.25s;
+  padding: 32px;
+  background: var(--gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 16px;
+  transition: .25s;
 }
+
 
 .card img {
-  width:100%;
-  height:220px;
-  object-fit:cover;
-  border-radius:12px;
-  margin-bottom:24px;
-  display:block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 24px;
+  display: block;
 }
 
+
 .card:hover {
-  border-color:var(--primary);
-  transform:translateY(-5px);
+  border-color: var(--primary);
+  transform: translateY(-5px);
 }
 
 
 .card a {
-  color:var(--primary);
-  font-weight:700;
-  text-decoration:none;
+  color: var(--primary);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 
-/* Process */
+/* Factory */
+
+.factory-building img,
+.factory-collage img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 20px;
+}
+
+
+.factory-building {
+  margin-bottom: 40px;
+}
+
+
+.factory-info {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-bottom: 50px;
+}
+
+
+.factory-info > div {
+  padding: 28px 20px;
+  background: var(--gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  text-align: center;
+}
+
+
+.factory-info strong {
+  display: block;
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+}
+
+
+.factory-info span {
+  display: block;
+  color: #94a3b8;
+  font-size: .95rem;
+}
+
+
+.factory-collage {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+
+/* Manufacturing Process */
 
 .steps {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:24px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 24px;
 }
 
 
 .step {
-  text-align:center;
+  text-align: center;
+  padding: 10px;
 }
 
 
 .number {
-  width:48px;
-  height:48px;
-  margin:auto;
-  border-radius:50%;
-  background:var(--primary);
-  color:white;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+
+.step h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+  line-height: 1.4;
+}
+
+
+.step p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+
+/* Global Export Map */
+
+.global > img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 20px;
+  margin-bottom: 40px;
 }
 
 
@@ -590,41 +856,113 @@ h3 {
 
 .industry-grid,
 .market-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-  gap:20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 20px;
 }
 
 
-.industry,
+.industry {
+  padding: 28px 24px;
+  background: var(--gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  text-align: center;
+}
+
+
+.industry h3 {
+  margin: 0 0 12px;
+  font-size: 1.15rem;
+}
+
+
+.industry p {
+  margin: 0;
+  color: #94a3b8;
+  font-size: .95rem;
+  line-height: 1.6;
+}
+
+
 .market-grid div {
-  padding:24px;
-  background:var(--light);
-  border:1px solid var(--border);
-  border-radius:12px;
-  text-align:center;
-  font-weight:600;
+  padding: 24px;
+  background: var(--gray);
+  border: 1px solid var(--light-gray);
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 600;
+}
+
+
+/* Manufacturing Trust Section */
+
+.trust-section {
+  background: var(--gray);
+  border-radius: 24px;
+}
+
+
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+
+.trust-card {
+  background: white;
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--light-gray);
+}
+
+
+.trust-number {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+
+.trust-card h3 {
+  margin-bottom: 12px;
+}
+
+
+.trust-card p {
+  color: #94a3b8;
+  line-height: 1.7;
 }
 
 
 /* CTA */
 
 .cta {
-  text-align:center;
-  background:var(--light);
-  border-radius:24px;
+  text-align: center;
+  background: var(--gray);
+  border-radius: 24px;
 }
 
 
-@media(max-width:768px){
+@media (max-width: 768px) {
 
   .trust-bar {
-    grid-template-columns:1fr;
+    grid-template-columns: 1fr;
   }
 
+  .factory-info {
+    grid-template-columns: 1fr;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 
   h1 {
-    font-size:2.5rem;
+    font-size: 2.5rem;
   }
 
 }
