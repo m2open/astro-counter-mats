@@ -1,0 +1,183 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout title="Request a Quote - Custom Counter Mats">
+
+<section style="padding:140px 20px 100px;text-align:center;background:linear-gradient(135deg,#4F46E5,#2563EB);">
+    <h1 style="font-size:3.2rem;margin-bottom:20px;color:white;">
+        Request a Quote
+    </h1>
+
+    <p style="font-size:1.35rem;max-width:750px;margin:0 auto;color:white;">
+        Tell us about your custom counter mat project.<br>
+        Our OEM team will review your requirements and reply within 24 hours.
+    </p>
+</section>
+
+
+<section style="padding:80px 20px;background:#F8FAFC;">
+
+<div style="max-width:900px;margin:auto;">
+
+<div style="background:white;padding:50px;border-radius:20px;box-shadow:0 10px 30px rgba(0,0,0,.08);">
+
+
+<h2 style="margin-bottom:35px;text-align:center;">
+Get Your Custom Quote
+</h2>
+
+
+<form class="quote-form">
+
+<div class="form-group">
+<label for="productType">Product Type</label>
+<select id="productType" name="productType">
+<option>Hard Surface Counter Mat</option>
+<option>Fabric Counter Mat</option>
+<option>Changeable Insert Counter Mat</option>
+<option>Premium Bar Counter Mat</option>
+<option>Eco-Friendly Counter Mat</option>
+<option>Custom Shape Counter Mat</option>
+<option>Duraframe Window Poster Frame</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="quantity">Quantity</label>
+<select id="quantity" name="quantity">
+<option>100 pcs</option>
+<option selected>500 pcs</option>
+<option>1000 pcs</option>
+<option>5000+ pcs</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="dimension">Size / Dimension</label>
+<input type="text" id="dimension" name="dimension" placeholder="Example: 600mm x 300mm">
+</div>
+
+<div class="form-group">
+<label for="logoMethod">Logo Method</label>
+<select id="logoMethod" name="logoMethod">
+<option>Full Color Printing</option>
+<option>Screen Printing</option>
+<option>Embossed Logo</option>
+<option>Custom Requirement</option>
+</select>
+</div>
+
+<div class="form-group">
+<label for="company">Your Company</label>
+<input type="text" id="company" name="company">
+</div>
+
+<div class="form-group">
+<label for="email">Email</label>
+<input type="email" id="email" name="email">
+</div>
+
+<div class="form-group">
+<label for="whatsapp">WhatsApp</label>
+<input type="text" id="whatsapp" name="whatsapp">
+</div>
+
+<div class="form-group">
+<label for="details">Project Details</label>
+<textarea id="details" name="details" rows="5"></textarea>
+</div>
+
+<button type="submit" class="submit-btn">
+Submit Quote Request →
+</button>
+
+</form>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+<section style="padding:60px 20px;text-align:center;">
+
+<h2>Direct Contact</h2>
+
+<p>
+Email:
+<a href="mailto:countermat25@gmail.com">
+countermat25@gmail.com
+</a>
+</p>
+
+<p>
+WhatsApp:
++8613168787818
+</p>
+
+</section>
+
+<style>
+.quote-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+  color: #1e293b;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-size: 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-family: inherit;
+  background: white;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #4F46E5;
+}
+
+.form-group textarea {
+  resize: vertical;
+}
+
+.submit-btn {
+  margin-top: 10px;
+  padding: 16px 32px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: white;
+  background: linear-gradient(135deg,#4F46E5,#2563EB);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  align-self: center;
+}
+
+.submit-btn:hover {
+  opacity: 0.92;
+}
+</style>
+
+
+</Layout>

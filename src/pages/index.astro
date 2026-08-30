@@ -46,7 +46,14 @@ const productLines = [
     slug: "custom-shapes-sizes",
     image: "/images/products/custom-shapes-sizes-counter-mat.webp",
     alt: "Custom shaped counter mat manufactured in unique sizes for brand displays"
-  }
+  },
+  {
+  name: "Duraframe Window Poster Frame",
+  desc: "Custom magnetic display frames for retail windows, offices and promotional signage applications.",
+  slug: "duraframe-window-poster-frame",
+  image: "/images/products/duraframe-window-poster-frame.webp",
+  alt: "Custom Duraframe Window Poster Frame OEM Manufacturer for Retail Displays"
+  },
 ];
 
 const capabilities = [
@@ -554,20 +561,25 @@ const industries = [
   </section>
 
 
-  <section class="cta" id="quote">
+  <!-- Final Homepage CTA -->
+  <section class="final-cta" id="quote">
 
-    <h2>
-      Ready to Develop Your Custom Counter Mat?
-    </h2>
+    <div class="final-cta-inner">
 
-    <p>
-      Share your requirements and our team will
-      provide a production solution for your project.
-    </p>
+      <h2>
+        Ready to Bring Your Brand to the Counter?
+      </h2>
 
-    <a href="mailto:countermat25@gmail.com" class="btn primary">
-      Start Your Project
-    </a>
+      <p>
+        We help businesses worldwide create professional,
+        high-quality custom counter mats.
+      </p>
+
+      <a href="mailto:countermat25@gmail.com" class="final-cta-button">
+        Request a Quote
+      </a>
+
+    </div>
 
   </section>
 
@@ -938,12 +950,60 @@ h3 {
 }
 
 
-/* CTA */
+/* Final CTA */
 
-.cta {
+.final-cta {
+  background: #0b1529;
+  color: #e2e8f0;
   text-align: center;
-  background: var(--gray);
-  border-radius: 24px;
+  padding: 80px 24px 92px;
+}
+
+.final-cta-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.final-cta h2 {
+  margin: 0;
+  color: #e2e8f0;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.final-cta p {
+  max-width: 1350px;
+  margin: 72px auto 0;
+  color: #e2e8f0;
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+  line-height: 1.35;
+  font-weight: 400;
+}
+
+.final-cta-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 510px;
+  min-height: 140px;
+  margin-top: 72px;
+  padding: 24px 48px;
+  border-radius: 999px;
+  background: #ff7112;
+  color: #ffffff;
+  font-size: 2.5rem;
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.final-cta-button:hover {
+  background: #f2650a;
+  transform: translateY(-2px);
 }
 
 
@@ -964,6 +1024,28 @@ h3 {
 
   h1 {
     font-size: 2.5rem;
+  }
+
+  .final-cta {
+    padding: 60px 20px 72px;
+  }
+
+  .final-cta h2 {
+    font-size: 2.25rem;
+  }
+
+  .final-cta p {
+    margin-top: 48px;
+    font-size: 1.5rem;
+  }
+
+  .final-cta-button {
+    min-width: 0;
+    width: 100%;
+    max-width: 420px;
+    min-height: 96px;
+    margin-top: 48px;
+    font-size: 2rem;
   }
 
 }
