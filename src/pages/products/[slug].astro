@@ -1,6 +1,6 @@
 ---
 // src/pages/products/[slug].astro
-import Header from '../../components/Header.astro';
+import Layout from '../../components/Layout.astro';
 
 const CRAFT_API = 'https://a744181dea.nxcli.io/api';
 
@@ -98,14 +98,11 @@ function slugify(text) {
 }
 ---
 
-<html lang="en">
-<head>
+<Layout title={`${product.title} - Custom Counter Mats`}>
+
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{product.title} - Custom Counter Mats</title>
-</head>
-<body style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
-  <Header currentPage="products" />
+  <div style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
 
   <main style="max-width: 900px; margin: 0 auto; padding: 3rem 20px;">
     <a href="/products" style="color: #f97316; text-decoration: none; font-size: 0.95rem;">&larr; Back to Products</a>
@@ -294,7 +291,7 @@ function slugify(text) {
       </div>
     </div>
   </main>
-</body>
+  </div>
 
 <script>
   const ctaButtons = document.querySelectorAll('.cta-btn');
@@ -328,4 +325,4 @@ function slugify(text) {
     });
   });
 </script>
-</html>
+</Layout>
