@@ -1,6 +1,7 @@
 ---
 // src/pages/faq/index.astro
 import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
 import { craftQuery } from '../../lib/craft';
 
 const CATEGORIES = [
@@ -148,5 +149,7 @@ const jsonLd = {
       </div>
     </div>
   </main>
+
+<Footer />
 </body>
 </html>
