@@ -241,17 +241,27 @@ function slugify(text) {
             const catSlug = faq.faqCategory?.[0]?.slug;
             const qSlug = slugify(faq.question);
             return (
-              <a
-                href={`/faq/${catSlug}#${qSlug}`}
-                style="display: block; background: #26334a; border: 1px solid #334155; border-radius: 8px; padding: 0.9rem 1.15rem; text-decoration: none; color: white;"
+              <details
+                style="background: #26334a; border: 1px solid #334155; border-radius: 8px; padding: 0.9rem 1.15rem;"
               >
-                <span style="font-weight: 600; font-size: 1rem;">{faq.question}</span>
+                <summary
+                  style="cursor: pointer; font-weight: 600; font-size: 1rem; color: white; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;"
+                >
+                  <span>{faq.question}</span>
+                  <span class="faq-chevron" aria-hidden="true"></span>
+                </summary>
                 {faq.shortAnswer && (
-                  <p style="margin: 0.4rem 0 0 0; color: #94a3b8; font-size: 0.9rem; line-height: 1.5;">
+                  <p style="margin: 0.9rem 0 0 0; padding-top: 0.9rem; border-top: 1px solid #334155; color: #cbd5e1; font-size: 0.9rem; line-height: 1.5;">
                     {faq.shortAnswer}
                   </p>
                 )}
-              </a>
+                <a
+                  href={`/faq/${catSlug}#${qSlug}`}
+                  style="display: inline-block; margin-top: 0.75rem; color: #f97316; font-size: 0.85rem; text-decoration: none;"
+                >
+                  View full answer &rarr;
+                </a>
+              </details>
             );
           })}
         </div>
@@ -326,3 +336,28 @@ function slugify(text) {
   });
 </script>
 </Layout>
+
+
+<style>
+.faq-chevron {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(45deg);
+  flex: 0 0 9px;
+  margin-right: 4px;
+  margin-top: -5px;
+  transition: transform 0.2s ease;
+}
+
+details[open] .faq-chevron {
+  transform: rotate(225deg);
+  margin-top: 5px;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+</style>

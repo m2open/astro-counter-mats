@@ -119,9 +119,10 @@ const jsonLd = {
           style="background: #26334a; border: 1px solid #334155; border-radius: 8px; padding: 1rem 1.25rem;"
         >
           <summary
-            style="cursor: pointer; font-weight: 600; font-size: 1.05rem; color: white; list-style: none;"
+            style="cursor: pointer; font-weight: 600; font-size: 1.05rem; color: white; list-style: none; display: flex; align-items: center; justify-content: space-between; gap: 1rem;"
           >
-            {entry.question}
+            <span>{entry.question}</span>
+            <span class="faq-chevron" aria-hidden="true"></span>
           </summary>
           <div style="margin-top: 0.9rem; padding-top: 0.9rem; border-top: 1px solid #334155; color: #cbd5e1; line-height: 1.6; font-size: 1rem;">
             <p set:html={entry.answer} />
@@ -172,3 +173,27 @@ const jsonLd = {
   </main>
 </body>
 </html>
+
+<style>
+.faq-chevron {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  transform: rotate(45deg);
+  flex: 0 0 9px;
+  margin-right: 4px;
+  margin-top: -5px;
+  transition: transform 0.2s ease;
+}
+
+details[open] .faq-chevron {
+  transform: rotate(225deg);
+  margin-top: 5px;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+</style>
