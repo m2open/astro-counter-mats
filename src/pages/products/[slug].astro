@@ -1,8 +1,7 @@
 ---
 // src/pages/products/[slug].astro
 import Layout from '../../components/Layout.astro';
-
-const CRAFT_API = 'https://a744181dea.nxcli.io/api';
+import { craftQuery } from '../../lib/craft';
 
 export async function getStaticPaths() {
   const query = `
@@ -13,13 +12,7 @@ export async function getStaticPaths() {
     }
   `;
 
-  const response = await fetch('https://a744181dea.nxcli.io/api', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ query }),
-  });
-
-  const { data } = await response.json();
+  const data = await craftQuery(query);
 
   return data.entries.map((entry) => ({
     params: { slug: entry.slug },
@@ -76,13 +69,7 @@ const query = `
   }
 `;
 
-const response = await fetch('https://a744181dea.nxcli.io/api', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
-  body: JSON.stringify({ query, variables: { slug: [slug] } }),
-});
-
-const { data } = await response.json();
+const data = await craftQuery(query, { slug: [slug] });
 const product = data.entry;
 
 if (!product) {
