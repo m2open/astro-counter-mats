@@ -23,3 +23,4 @@ src/pages/home-v1-backup.astro
 
 # jetbrains setting folder
 .idea/
+.cursor/
