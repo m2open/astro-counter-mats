@@ -48,7 +48,7 @@ function slugify(text) {
 }
 
 const pageTitle = 'Frequently Asked Questions - Custom Counter Mats';
-const pageDescription = 'Answers to common questions about ordering, artwork, materials, shipping, and OEM services for custom counter mats.';
+const pageDescription = 'Answers about ordering, artwork, materials, shipping, and OEM services for custom counter mats from Custom Counter Mat.';
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -64,9 +64,7 @@ const jsonLd = {
 };
 ---
 
-<Layout title={pageTitle}>
-  <meta slot="head" name="description" content={pageDescription} />
-  <link slot="head" rel="canonical" href="https://customcountermat.com/faq" />
+<Layout title={pageTitle} description={pageDescription}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div style="max-width: 1000px; margin: 0 auto; padding: 3rem 20px;">

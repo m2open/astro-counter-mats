@@ -6,7 +6,10 @@ const data = await craftQuery('{ entries(section: "products") { id title slug ..
 const products = data.entries as any[];
 ---
 
-<Layout title="Products - OEM Custom Counter Mats">
+<Layout
+    title="Products - OEM Custom Counter Mats"
+    description="Browse OEM custom counter mats including fabric, hard surface, bar, insert, eco-friendly, and custom-shape options for retail and hospitality brands."
+>
     <!-- Hero -->
     <section style="padding: 140px 20px 80px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
         <h1 style="font-size: 3.5rem; margin-bottom: 20px;">Our Products</h1>

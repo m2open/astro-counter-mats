@@ -1,7 +1,20 @@
 ---
 import Header from './Header.astro';
 import Footer from './Footer.astro';
-const { title = 'OEM Custom Counter Mats' } = Astro.props;
+
+interface Props {
+  title?: string;
+  description: string;
+}
+
+const { title = 'OEM Custom Counter Mats', description } = Astro.props;
+
+const site = Astro.site?.origin ?? 'https://customcountermat.com';
+const pathname = Astro.url.pathname.endsWith('/')
+  ? Astro.url.pathname
+  : `${Astro.url.pathname}/`;
+const canonical = `${site}${pathname}`;
+const ogImage = `${site}/images/home/hero-counter-mat.webp`;
 ---
 
 <html lang="en">
@@ -9,6 +22,19 @@ const { title = 'OEM Custom Counter Mats' } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
 
     <!-- Website favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />

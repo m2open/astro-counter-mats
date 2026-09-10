@@ -33,9 +33,12 @@ const data = await craftQuery(`
 `);
 
 const post = data.entry;
+const description = post.summary?.trim()
+  ? post.summary.trim()
+  : `${post.title} — article from Custom Counter Mat.`;
 ---
 
-<Layout title={post.title}>
+<Layout title={`${post.title} - Custom Counter Mats`} description={description}>
     <section style="padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
         <h1 style="font-size: 3rem; margin-bottom: 20px;">{post.title}</h1>
         <p style="color: #93c5fd;">{post.publishedDate}</p>

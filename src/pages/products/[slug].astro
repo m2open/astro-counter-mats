@@ -83,15 +83,27 @@ function slugify(text) {
     .trim()
     .replace(/\s+/g, '-');
 }
+
+function metaDescription(text, fallback) {
+  const value = typeof text === 'string' ? text.trim().replace(/\s+/g, ' ') : '';
+  if (!value) return fallback;
+  if (value.length <= 160) return value;
+  const cut = value.slice(0, 157);
+  const lastSpace = cut.lastIndexOf(' ');
+  return `${(lastSpace > 80 ? cut.slice(0, lastSpace) : cut).trim()}...`;
+}
+
+const description = metaDescription(
+  product.productDescription,
+  `${product.title} from Custom Counter Mat, an OEM manufacturer of custom counter mats.`
+);
 ---
 
-<Layout title={`${product.title} - Custom Counter Mats`}>
+<Layout title={`${product.title} - Custom Counter Mats`} description={description}>
 
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <div style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
 
-  <main style="max-width: 900px; margin: 0 auto; padding: 3rem 20px;">
+  <div style="max-width: 900px; margin: 0 auto; padding: 3rem 20px;">
     <a href="/products" style="color: #f97316; text-decoration: none; font-size: 0.95rem;">&larr; Back to Products</a>
 
     <h1 style="font-size: 2.4rem; margin-top: 1rem;">{product.title}</h1>
@@ -287,7 +299,7 @@ function slugify(text) {
         >XChat</a>
       </div>
     </div>
-  </main>
+  </div>
   </div>
 
 <script>

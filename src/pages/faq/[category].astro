@@ -88,9 +88,7 @@ const jsonLd = {
 };
 ---
 
-<Layout title={pageTitle}>
-  <meta slot="head" name="description" content={pageDescription} />
-  <link slot="head" rel="canonical" href={`https://customcountermat.com/faq/${category}`} />
+<Layout title={pageTitle} description={pageDescription}>
   <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
   <div style="max-width: 900px; margin: 0 auto; padding: 3rem 20px;">

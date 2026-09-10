@@ -6,7 +6,10 @@ const data = await craftQuery('{ entries(section: "blog") { id title slug ... on
 const posts = data.entries as any[];
 ---
 
-<Layout title="Blog - Custom Counter Mats">
+<Layout
+    title="Blog - Custom Counter Mats"
+    description="Articles on custom counter mats, bar branding, and hospitality merchandising from an OEM counter mat manufacturer."
+>
     <section style="padding: 120px 20px 60px; text-align: center; background: linear-gradient(135deg, #1e40af, #3b82f6);">
         <h1 style="font-size: 3.2rem; margin-bottom: 20px;">Our Blog</h1>
         <p style="font-size: 1.3rem; max-width: 700px; margin: 0 auto;">
