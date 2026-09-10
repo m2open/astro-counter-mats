@@ -1,5 +1,7 @@
 ---
 import Layout from '../components/Layout.astro';
+
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 ---
 
 <Layout title="Request a Quote - Custom Counter Mats">
@@ -28,7 +30,7 @@ import Layout from '../components/Layout.astro';
           </p>
         </div>
 
-        <form class="quote-form">
+        <form class="quote-form" id="quote-form" action="/api/request-a-quote" method="post">
 
           <div class="form-grid">
 
@@ -128,6 +130,15 @@ import Layout from '../components/Layout.astro';
               <span>*</span> Required field
             </p>
 
+            {turnstileSiteKey && (
+              <div
+                class="cf-turnstile"
+                data-sitekey={turnstileSiteKey}
+              ></div>
+            )}
+
+            <p class="form-status" id="quote-form-status" aria-live="polite"></p>
+
             <button type="submit">
               Submit Quote Request
               <span aria-hidden="true">→</span>
@@ -222,6 +233,47 @@ import Layout from '../components/Layout.astro';
   </section>
 
 </Layout>
+
+<script>
+  const form = document.querySelector<HTMLFormElement>('#quote-form');
+  const status = document.querySelector<HTMLParagraphElement>('#quote-form-status');
+
+  form?.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    if (!form.reportValidity()) return;
+
+    const button = form.querySelector<HTMLButtonElement>('button[type="submit"]');
+    if (button) button.disabled = true;
+    if (status) status.textContent = '';
+
+    try {
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+      });
+      const result = await response.json() as { error?: string };
+
+      if (!response.ok) throw new Error(result.error || 'Unable to send your request.');
+
+      form.reset();
+      (window as typeof window & { turnstile?: { reset: () => void } }).turnstile?.reset();
+      if (status) status.textContent = 'Thank you. Your quote request has been sent.';
+    } catch (error) {
+      if (status) {
+        status.textContent = error instanceof Error
+          ? error.message
+          : 'Unable to send your quote request. Please try again.';
+      }
+    } finally {
+      if (button) button.disabled = false;
+    }
+  });
+</script>
+
+{turnstileSiteKey && (
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+)}
 
 <style>
   :global(*) {
@@ -398,6 +450,17 @@ import Layout from '../components/Layout.astro';
     margin-top: 34px;
     padding-top: 28px;
     border-top: 1px solid #E2E8F0;
+  }
+
+  .cf-turnstile,
+  .form-status {
+    margin-top: 16px;
+  }
+
+  .form-status {
+    min-height: 1.5em;
+    color: #475569;
+    font-size: 0.9rem;
   }
 
   .required-note {
