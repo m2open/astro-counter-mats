@@ -1,7 +1,6 @@
 ---
 // src/pages/faq/index.astro
-import Header from '../../components/Header.astro';
-import Footer from '../../components/Footer.astro';
+import Layout from '../../components/Layout.astro';
 import { craftQuery } from '../../lib/craft';
 
 const CATEGORIES = [
@@ -65,19 +64,12 @@ const jsonLd = {
 };
 ---
 
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>{pageTitle}</title>
-  <meta name="description" content={pageDescription} />
-  <link rel="canonical" href="https://customcountermat.com/faq" />
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
-</head>
-<body style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
-  <Header currentPage="faq" />
+<Layout title={pageTitle}>
+  <meta slot="head" name="description" content={pageDescription} />
+  <link slot="head" rel="canonical" href="https://customcountermat.com/faq" />
+  <script slot="head" type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 
-  <main style="max-width: 1000px; margin: 0 auto; padding: 3rem 20px;">
+  <div style="max-width: 1000px; margin: 0 auto; padding: 3rem 20px;">
     <h1 style="font-size: 2.6rem; margin-bottom: 0.5rem;">Frequently Asked Questions</h1>
     <p style="font-size: 1.15rem; line-height: 1.6; color: #cbd5e1; margin-bottom: 3rem; max-width: 700px;">
       Everything buyers ask us about ordering, artwork, materials, shipping, and OEM partnerships — organized by topic below.
@@ -147,11 +139,8 @@ const jsonLd = {
         >XChat</a>
       </div>
     </div>
-  </main>
-
-<Footer />
-</body>
-</html>
+  </div>
+</Layout>
 
 <style>
 .faq-chevron {
