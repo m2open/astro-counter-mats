@@ -8,6 +8,7 @@ const currentPage =
   path.startsWith('/company-profile') ? 'company-profile' :
   path.startsWith('/faq') ? 'faq' :
   path.startsWith('/blog') ? 'blog' :
+  path.startsWith('/request-a-quote') ? 'request-a-quote' :
   path.startsWith('/contact') ? 'contact' :
   '';
 
@@ -94,6 +95,11 @@ const productLines = [
       </a>
 
 
+      <a href="/request-a-quote/" class={currentPage === 'request-a-quote' ? 'active' : ''}>
+        Request a Quote
+      </a>
+
+
       <a href="mailto:info@customcountermat.com" class="social email">
         ✉
       </a>
@@ -142,6 +148,10 @@ const productLines = [
 
     <a href="/contact">
       Contact
+    </a>
+
+    <a href="/request-a-quote/" class={currentPage === 'request-a-quote' ? 'active' : ''}>
+      Request a Quote
     </a>
 
   </div>
