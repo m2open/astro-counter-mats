@@ -9,6 +9,7 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
+    "preview:pages": "wrangler pages dev ./dist",
     "astro": "astro"
   },
   "dependencies": {
@@ -18,5 +19,8 @@
     "esbuild@0.28.1": true,
     "sharp@0.34.5": true,
     "fsevents@2.3.3": true
+  },
+  "devDependencies": {
+    "wrangler": "^4.131.0"
   }
 }

@@ -16,7 +16,11 @@ pnpm-debug.log*
 # environment variables
 .env
 .env.production
+.dev.vars
 src/pages/home-v1-backup.astro
+
+# Cloudflare Wrangler
+.wrangler/
 
 # macOS-specific files
 .DS_Store
