@@ -27,7 +27,9 @@ const products = data.entries as any[];
                     )}
                 </div>
                 <div>
-                    <h2 style="font-size: 2.3rem;">{product.title}</h2>
+                    <h2 style="font-size: 2.3rem;">
+                        <a href={`/products/${product.slug}/`} style="color: inherit; text-decoration: none;">{product.title}</a>
+                    </h2>
                     <p style="font-size: 1.2rem; line-height: 1.8; margin: 25px 0;">{product.productDescription}</p>
 
                     <h3 style="margin: 30px 0 15px 0;">Specifications</h3>
@@ -38,6 +40,9 @@ const products = data.entries as any[];
                         <tr><td style="padding: 12px 0; font-weight: 600;">Printing</td><td style="padding: 12px 0;">{product.printing}</td></tr>
                     </table>
 
+                    <a href={`/products/${product.slug}/`} style="color:#f97316; text-decoration:none; font-weight:bold; display:inline-block; margin-right: 24px;">
+                        Explore Product
+                    </a>
                     <a href="/request-a-quote/" style="background:#f97316; color:white; padding:16px 40px; border-radius:50px; text-decoration:none; font-weight:bold; display:inline-block;">
                         Request a Quote
                     </a>

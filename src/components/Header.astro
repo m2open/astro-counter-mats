@@ -60,13 +60,13 @@ const productLines = [
 
       <div class="products-dropdown">
 
-        <button class={currentPage === 'products' ? 'active products-button' : 'products-button'}>
+        <a href="/products/" class={currentPage === 'products' ? 'active products-button' : 'products-button'}>
           Products ▾
-        </button>
+        </a>
 
         <div class="products-submenu">
           {productLines.map((item) => (
-            <a href={`/products/${item.slug}`}>
+            <a href={`/products/${item.slug}/`}>
               {item.name}
             </a>
           ))}
@@ -130,7 +130,7 @@ const productLines = [
       Home
     </a>
 
-    <a href="/products">
+    <a href="/products/">
       Products
     </a>
 
