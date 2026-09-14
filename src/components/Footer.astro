@@ -103,6 +103,11 @@ const currentPage =
         <p style="opacity: 0.6; font-size: 0.95rem; text-align: center; margin: 0;">
             © 2026 CustomCounterMat. All Rights Reserved.
         </p>
+        <p class="footer-legal-row">
+            <a href="/privacy/">Privacy Policy</a>
+            <span aria-hidden="true"> · </span>
+            <a href="/terms/">Terms &amp; Conditions</a>
+        </p>
     </div>
 </footer>
 
@@ -178,6 +183,20 @@ const currentPage =
             grid-template-columns: repeat(2, 1fr);
         }
     }
+    .footer-legal-row {
+        margin: 10px 0 0;
+        text-align: center;
+        font-size: 0.82rem;
+        opacity: 0.7;
+    }
+    .footer-legal-row a {
+        color: #e2e8f0;
+        text-decoration: none;
+    }
+    .footer-legal-row a:hover {
+        color: #f97316;
+    }
+
     @media (max-width: 600px) {
         .footer-columns {
             grid-template-columns: 1fr;
