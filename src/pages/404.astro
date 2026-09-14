@@ -1,0 +1,152 @@
+---
+import Layout from '../components/Layout.astro';
+---
+
+<Layout
+  title="Page Not Found - Custom Counter Mats"
+  description="The requested page could not be found. Return to Custom Counter Mats or explore our products and contact options."
+>
+  <section class="not-found">
+    <div class="not-found-content">
+      <p class="error-code">404</p>
+      <p class="eyebrow">Page Not Found</p>
+      <h1>We couldn’t find the page you requested.</h1>
+      <p class="explanation">
+        The page may have moved, the address may be incorrect, or the content may
+        no longer be available. Use one of the links below to continue.
+      </p>
+
+      <nav class="recovery-links" aria-label="Page recovery options">
+        <a class="primary-link" href="/">Home</a>
+        <a href="/products/">Products</a>
+        <a href="/contact/">Contact</a>
+        <a href="/request-a-quote/">Request a Quote</a>
+      </nav>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
+  .not-found {
+    display: grid;
+    min-height: 720px;
+    place-items: center;
+    padding: 150px 20px 120px;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at 50% 20%, rgb(37 99 235 / 18%), transparent 42%),
+      #0f172a;
+    color: #e2e8f0;
+    text-align: center;
+  }
+
+  .not-found-content {
+    width: min(760px, 100%);
+    margin: 0 auto;
+  }
+
+  .error-code {
+    margin: 0;
+    color: #f97316;
+    font-size: clamp(6rem, 18vw, 11rem);
+    font-weight: 800;
+    letter-spacing: -0.07em;
+    line-height: 0.8;
+  }
+
+  .eyebrow {
+    margin: 32px 0 12px;
+    color: #93c5fd;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+  }
+
+  .explanation {
+    max-width: 650px;
+    margin: 24px auto 0;
+    color: #cbd5e1;
+    font-size: 1.1rem;
+  }
+
+  .recovery-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 14px;
+    margin-top: 38px;
+  }
+
+  .recovery-links a {
+    display: inline-flex;
+    min-height: 50px;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border: 1px solid #475569;
+    border-radius: 999px;
+    color: #ffffff;
+    font-weight: 700;
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+
+  .recovery-links a:hover {
+    border-color: #93c5fd;
+    background: rgb(255 255 255 / 7%);
+    transform: translateY(-2px);
+  }
+
+  .recovery-links .primary-link {
+    border-color: #f97316;
+    background: #f97316;
+  }
+
+  .recovery-links .primary-link:hover {
+    border-color: #ea580c;
+    background: #ea580c;
+  }
+
+  @media (max-width: 600px) {
+    .not-found {
+      min-height: 620px;
+      padding: 110px 20px 90px;
+    }
+
+    .eyebrow {
+      margin-top: 26px;
+    }
+
+    .explanation {
+      font-size: 1rem;
+    }
+
+    .recovery-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      width: 100%;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .recovery-links a {
+      padding-inline: 14px;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .recovery-links {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
