@@ -2,8 +2,8 @@
 import Layout from '../components/Layout.astro';
 import { craftQuery } from '../lib/craft';
 
-const data = await craftQuery('{ entries(section: "products") { id title slug ... on products_default_Entry { productDescription material thickness printing priceRange productImages { url alt } } } }');
-const products = data.entries as any[];
+const data = await craftQuery('{ entries(section: "products") { id title slug ... on products_default_Entry { hideFromListing productDescription material thickness printing priceRange productImages { url alt } } } }');
+const products = (data.entries as any[]).filter((p) => !p.hideFromListing);
 ---
 
 <Layout

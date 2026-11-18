@@ -5,9 +5,10 @@ import Footer from './Footer.astro';
 interface Props {
   title?: string;
   description: string;
+  noindex?: boolean;
 }
 
-const { title = 'OEM Custom Counter Mats', description } = Astro.props;
+const { title = 'OEM Custom Counter Mats', description, noindex = false } = Astro.props;
 
 const site = Astro.site?.origin ?? 'https://customcountermat.com';
 const pathname = Astro.url.pathname.endsWith('/')
@@ -23,6 +24,7 @@ const ogImage = `${site}/images/home/hero-counter-mat.webp`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, follow" />}
     <link rel="canonical" href={canonical} />
 
     <meta property="og:title" content={title} />

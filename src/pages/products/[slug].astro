@@ -27,6 +27,7 @@ const query = `
       title
       slug
       ... on products_default_Entry {
+        hideFromListing
         productDescription
         material
         thickness
@@ -99,7 +100,7 @@ const description = metaDescription(
 );
 ---
 
-<Layout title={`${product.title} - Custom Counter Mats`} description={description}>
+<Layout title={`${product.title} - Custom Counter Mats`} description={description} noindex={Boolean(product.hideFromListing)}>
 
   <div style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
 
