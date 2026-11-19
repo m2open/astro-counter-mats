@@ -132,7 +132,7 @@ export async function sendNotification(
   return response.ok;
 }
 
-function escapeHtml(value: string) {
+export function escapeHtml(value: string) {
   return value.replace(/[&<>'"]/g, (character) => ({
     '&': '&amp;',
     '<': '&lt;',
@@ -140,4 +140,32 @@ function escapeHtml(value: string) {
     "'": '&#39;',
     '"': '&quot;',
   })[character] || character);
+}
+
+/** Collapse to one line, trim and cap length (for subjects and greetings). */
+export function oneLine(value: string | undefined, max = 80) {
+  return (value || '').replace(/[\r\n\t]+/g, ' ').replace(/\s+/g, ' ').trim().slice(0, max);
+}
+
+/** Send a single email from the site sender via Resend. Returns true on success. */
+export async function sendEmail(
+  apiKey: string,
+  message: { to: string; subject: string; html: string; text: string; replyTo?: string },
+) {
+  const response = await fetch('https://api.resend.com/emails', {
+    method: 'POST',
+    headers: {
+      Authorization: `Bearer ${apiKey}`,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      from: SENDER,
+      to: [message.to],
+      ...(message.replyTo ? { reply_to: message.replyTo } : {}),
+      subject: message.subject,
+      html: message.html,
+      text: message.text,
+    }),
+  });
+  return response.ok;
 }
