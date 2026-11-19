@@ -21,7 +21,7 @@ const PRODUCT_TYPES = [
   'Premium Bar Counter Mat', 'Eco-Friendly Counter Mat', 'Custom Shape Counter Mat',
   'Duraframe Window Poster Frame',
 ] as const;
-const QUANTITIES = ['100 pcs', '250 pcs', '500 pcs', '750 pcs', '1,000 pcs', '1,500 pcs', '2,000 pcs', '2,500 pcs', '5,000+ pcs'] as const;
+const QUANTITIES = ['500 pcs', '750 pcs', '1,000 pcs', '1,500 pcs', '2,000 pcs', '2,500 pcs', '5,000+ pcs'] as const;
 const LOGO_METHODS = ['Full Color Printing', 'Screen Printing', 'Embossed Logo', 'Custom Requirement'] as const;
 
 const fields: readonly FieldDefinition[] = [
