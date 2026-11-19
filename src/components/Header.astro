@@ -48,8 +48,8 @@ const productLines = [
 <header class="site-header">
   <nav class="nav-container">
 
-    <a href="/" class="logo">
-      CounterMats
+    <a href="/" class="logo" aria-label="Custom Counter Mats home">
+      <img src="/images/logo-countermat.svg" alt="Custom Counter Mat" width="184" height="44" />
     </a>
 
     <div class="desktop-menu">
@@ -203,10 +203,21 @@ button?.addEventListener('click', () => {
 
 
 .logo {
-  color: white;
-  font-size: 1.7rem;
-  font-weight: bold;
+  display: flex;
+  align-items: center;
   text-decoration: none;
+}
+
+.logo img {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+@media (max-width: 768px) {
+  .logo img {
+    height: 34px;
+  }
 }
 
 

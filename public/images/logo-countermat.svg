@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 184 44">
+  <defs>
+    <style>
+      .cls-1{fill:#efefef;stroke:#000000;stroke-width:0.832;stroke-miterlimit:10}
+      .cls-2{fill:#3d3d87}
+      .cls-3{fill:#f0613a}
+      .cls-4{font-family:Arial;font-size:19;font-weight:bold;fill:#ffffff}
+    </style>
+  </defs>
+  <title>Custom Counter Mat logo</title>
+  <g id="Layer_1">
+    <path d="M0.97 1.16 L183.03 1.16 L183.03 42.84 L0.97 42.84 Z" class="cls-1"/>
+    <g>
+      <path d="M6.48 6.63 L110.44 6.63 L104.12 37.37 L6.48 37.37 Z" class="cls-2"/>
+      <path d="M177.52 37.36 L94.72 37.36 L101.83 6.64 L177.52 6.64 Z" class="cls-3"/>
+      <text transform="matrix(1 0 0 1 16.116 28.587)" x="0" y="0" xml:space="preserve" class="cls-4"><tspan x="0" y="0">Counter</tspan></text>
+      <text transform="matrix(1 0 0 1 121.51 28.587)" x="0" y="0" xml:space="preserve" class="cls-4"><tspan x="0" y="0">Mat</tspan></text>
+    </g>
+  </g>
+</svg>
