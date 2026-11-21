@@ -100,7 +100,7 @@ const description = metaDescription(
 );
 ---
 
-<Layout title={`${product.title} - Custom Counter Mats`} description={description} noindex={Boolean(product.hideFromListing)}>
+<Layout title={`${product.title} - Custom Counter Mats`} description={description} noindex={Boolean(product.hideFromListing)} ogImage={product.productImages?.[0]?.url}>
 
   <div style="margin: 0; background: #1e2937; color: white; font-family: system-ui, sans-serif;">
 

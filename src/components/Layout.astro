@@ -6,16 +6,46 @@ interface Props {
   title?: string;
   description: string;
   noindex?: boolean;
+  ogImage?: string;
 }
 
-const { title = 'OEM Custom Counter Mats', description, noindex = false } = Astro.props;
+const { title = 'OEM Custom Counter Mats', description, noindex = false, ogImage: ogImageProp } = Astro.props;
 
 const site = Astro.site?.origin ?? 'https://customcountermat.com';
 const pathname = Astro.url.pathname.endsWith('/')
   ? Astro.url.pathname
   : `${Astro.url.pathname}/`;
 const canonical = `${site}${pathname}`;
-const ogImage = `${site}/images/home/hero-counter-mat.webp`;
+// Page-specific share image (e.g. first product photo); falls back to the homepage hero.
+const ogImage = ogImageProp
+  ? new URL(ogImageProp, site).href
+  : `${site}/images/home/hero-counter-mat.webp`;
+
+// Organization details for search engines: links the site to its official social accounts.
+const organization = {
+  '@context': 'https://schema.org',
+  '@type': 'Organization',
+  name: 'Custom Counter Mat',
+  url: `${site}/`,
+  logo: `${site}/images/logo-countermat.svg`,
+  email: 'info@customcountermat.com',
+  telephone: '+86-131-6878-7818',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '5/F, Western Industrial Park',
+    addressLocality: "Bao'an, Shenzhen",
+    postalCode: '518101',
+    addressCountry: 'CN',
+  },
+  sameAs: [
+    'https://www.facebook.com/customcountermat',
+    'https://www.instagram.com/customcountermat',
+    'https://www.linkedin.com/in/customcountermat',
+    'https://www.youtube.com/@Custom-CounterMat',
+    'https://x.com/cc_countermat',
+    'https://t.me/CustomCounterMat',
+  ],
+};
 ---
 
 <html lang="en">
@@ -30,10 +60,12 @@ const ogImage = `${site}/images/home/hero-counter-mat.webp`;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Custom Counter Mat" />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
 
     <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@cc_countermat" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
@@ -41,6 +73,7 @@ const ogImage = `${site}/images/home/hero-counter-mat.webp`;
     <!-- Website favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="alternate icon" type="image/x-icon" href="/favicon.ico" />
+    <script type="application/ld+json" set:html={JSON.stringify(organization)} />
     <slot name="head" />
 
     <style>
